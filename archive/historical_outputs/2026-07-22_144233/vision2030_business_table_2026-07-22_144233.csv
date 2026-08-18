@@ -1,0 +1,19 @@
+﻿Category,Aspiration,Metric,Location,Value,Goal,Variance Direction,Variance,Variance Color,YTD,Data As Of
+LEARNING,Dynamic Learning Community,Internal Leader Fill Rate,AdventHealth,74.1%,N/A,→,N/A,GRAY,N/A,Jun 2026
+LEARNING,Dynamic Learning Community,Leader Effectiveness,AdventHealth,85.8,>= 81.0,↗,0.1%,GREEN,N/A,Mar 2026
+LEARNING,Dynamic Learning Community,Opportunity to Learn and Grow,AdventHealth,81,>= 79,→,0.0%,GREEN,N/A,Mar 2026
+TEAM,Team Member Promise,Forecast and Hire,AdventHealth,"12,510","12,176",↗,0.0%,GREEN,N/A,Jun 2026
+TEAM,Team Member Promise,Team Member Engagement,AdventHealth,82,>= 81,→,0.0%,GREEN,N/A,Mar 2026
+TEAM,Team Member Promise,Total Turnover (Rolling 12),AdventHealth,16.9%,<= 17.3%,↘,0.4%,GREEN,N/A,Jun 2026
+TEAM MEMBER PROMISE - PHYSICIAN ENGAGEMENT,Team Member Promise - Physician Engagement,Physician Engagement,AdventHealth,66,>= 75,→,N/A,RED,N/A,2024
+CONSUMER,Consumer Focused Connected Network,Digital Tool Utilization,AdventHealth,3.2M,>= 3.6M,→,N/A,RED,N/A,May 2026
+CONSUMER,Consumer Focused Connected Network,LTR ED,AdventHealth,69,>= 75,→,N/A,RED,70,May 2026
+CONSUMER,Consumer Focused Connected Network,LTR Inpatient,AdventHealth,64,>= 75,→,N/A,RED,62,May 2026
+CONSUMER,Consumer Focused Connected Network,LTR Med Practice,AdventHealth,67,>= 75,→,N/A,RED,71,May 2026
+CLINICAL,Clinical Excellence,Length of Stay O/E,AdventHealth,N/A,N/A,→,N/A,GRAY,N/A,N/A
+FINANCIAL,Financial Strength and Growth,EBITDA Dollars,AdventHealth,$350.6M,>= $279.5M,↗,25.4%,GREEN,N/A,May 2026
+FINANCIAL,Financial Strength and Growth,TOR Dollars,AdventHealth,$2.1B,>= $2.0B,↗,3.2%,GREEN,N/A,May 2026
+FINANCIAL,Financial Strength and Growth,TOR Growth Rate,AdventHealth,8.1%,>= 12.3%,↗,4.2%,RED,N/A,May 2026
+RISK,Managed Population Risk,Domestic Spend,AdventHealth,75.5%,>= 76.6%,→,N/A,RED,N/A,May 2026
+WPC,Whole-Person Care,Community Impact,AdventHealth,Coming Soon,N/A,→,N/A,GRAY,N/A,N/A
+WPC,Whole-Person Care,Mission Integration Plan,AdventHealth,Coming Soon,N/A,→,N/A,GRAY,N/A,N/A

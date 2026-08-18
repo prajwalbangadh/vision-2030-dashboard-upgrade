@@ -1,0 +1,66 @@
+﻿
+  vision2030_contemporary_site\run_vision2030.py:15:PILLAR={'Learning':'Dynamic Learning Community','Team':'Team Member Promise','Consumer':'Consumer Focused Connected Network','Clinical':'Clinical Excellence','Financial':'Financial Strength & Growth','Risk':'Managed Population Risk','WPC':'Whole-Person Care'}
+  vision2030_contemporary_site\run_vision2030.py:16:DIV_LABEL={'CFD':'CFD','EFD':'EFD','WFD':'WFD','PHD':'PHD','MSD':'MSD','MSD 1':'MSD 1','MSD 2':'MSD 2','Corporate Services Division Cost Centers by Reporting Hierarchy':'Corporate Services','Florida Division Cost Centers by Reporting Hierarchy':'Florida Division (Unresolved)','Multistate Division Cost Centers by Reporting Hierarchy':'Multistate Division (Unresolved)'}
+  vision2030_contemporary_site\run_vision2030.py:17:DIV_ORDER=['CFD','EFD','WFD','PHD','MSD','MSD 1','MSD 2','Corporate Services Division Cost Centers by Reporting Hierarchy','Florida Division Cost Centers by Reporting Hierarchy','Multistate Division Cost Centers by Reporting Hierarchy']
+> vision2030_contemporary_site\run_vision2030.py:18:VALID={'green','red','gray'}
+  vision2030_contemporary_site\run_vision2030.py:19:
+  vision2030_contemporary_site\run_vision2030.py:20:def text(v): return 'N/A' if v is None or not str(v).strip() else str(v).strip()
+> vision2030_contemporary_site\run_vision2030.py:21:def status(v):
+> vision2030_contemporary_site\run_vision2030.py:22: x=text(v).lower(); return x if x in VALID else 'gray'
+  vision2030_contemporary_site\run_vision2030.py:23:def slug(v): return re.sub(r'[^A-Z0-9]+','_',text(v).upper()).strip('_') or 'NA'
+  vision2030_contemporary_site\run_vision2030.py:24:def latest(root):
+  vision2030_contemporary_site\run_vision2030.py:25: files=[p for p in root.glob('*/vision2030_business_table_*.xlsx') if p.is_file() and not p.name.startswith('~$')]
+  vision2030_contemporary_site\run_vision2030.py:226:   'selectorSubgroup':selector_subgroup(lt)
+  vision2030_contemporary_site\run_vision2030.py:227:  })
+  vision2030_contemporary_site\run_vision2030.py:228:  seen.add(sid)
+> vision2030_contemporary_site\run_vision2030.py:229: data=defaultdict(lambda:{'values':{},'scores':{}}); source_map={}; duplicates=[]
+  vision2030_contemporary_site\run_vision2030.py:230: # system
+  vision2030_contemporary_site\run_vision2030.py:231: for r in summary:
+  vision2030_contemporary_site\run_vision2030.py:232:  ui=ALIASES.get(text(r.get('Metric')))
+  vision2030_contemporary_site\run_vision2030.py:233:  if ui:
+> vision2030_contemporary_site\run_vision2030.py:234:   data['SYS']['values'][ui]=text(r.get('Value')); data['SYS']['scores'][ui]=status(r.get('Variance Color')); source_map[('SYS',ui)]=('Vision 2030',r['_row'],r)
+  vision2030_contemporary_site\run_vision2030.py:235: # detail scopes
+  vision2030_contemporary_site\run_vision2030.py:236: for r in details:
+  vision2030_contemporary_site\run_vision2030.py:237:  ui=ALIASES.get(text(r.get('Metric')))
+  vision2030_contemporary_site\run_vision2030.py:258:   seen.add(sid)
+  vision2030_contemporary_site\run_vision2030.py:259:  key=(sid,ui)
+  vision2030_contemporary_site\run_vision2030.py:260:  # The Vision 2030 summary sheet is authoritative for SYS. Detail-sheet Corporate rows
+> vision2030_contemporary_site\run_vision2030.py:261:  # repeat the same value but may carry GRAY because detail color is not populated.
+  vision2030_contemporary_site\run_vision2030.py:262:  if sid=='SYS' and key in source_map and source_map[key][0]=='Vision 2030':
+  vision2030_contemporary_site\run_vision2030.py:263:   continue
+  vision2030_contemporary_site\run_vision2030.py:264:  if key in source_map:
+  vision2030_contemporary_site\run_vision2030.py:265:   prior=source_map[key][2]
+> vision2030_contemporary_site\run_vision2030.py:266:   if text(prior.get('Value'))!=text(r.get('Value')) or status(prior.get('Variance Color'))!=status(r.get('Variance Color')): duplicates.append((sid,ui,source_map[key],(r['_sheet'],r['_row'],r)))
+  vision2030_contemporary_site\run_vision2030.py:267:   continue
+> vision2030_contemporary_site\run_vision2030.py:268:  data[sid]['values'][ui]=text(r.get('Value')); data[sid]['scores'][ui]=status(r.get('Variance Color')); source_map[key]=(r['_sheet'],r['_row'],r)
+  vision2030_contemporary_site\run_vision2030.py:269: facilities=[]
+  vision2030_contemporary_site\run_vision2030.py:270: for sc in scopes:
+  vision2030_contemporary_site\run_vision2030.py:271:  if sc['kind']=='facility': facilities.append({'name':sc['label'],'div':sc['parent'],'division':next((x['label'] for x in scopes if x['id']==sc['parent']),sc['parent']),'region':None,'ceo':'N/A','start':'N/A','asp':0,'short':sc['label']})
+  vision2030_contemporary_site\run_vision2030.py:275:def audit(generated,summary,details,source_map,duplicates):
+  vision2030_contemporary_site\run_vision2030.py:276: rows_out=[]; mismatches=0
+  vision2030_contemporary_site\run_vision2030.py:277: for (sid,ui),(sheet,rownum,r) in source_map.items():
+> vision2030_contemporary_site\run_vision2030.py:278:  sv=generated['metricData'][sid]['values'][ui]; ss=generated['metricData'][sid]['scores'][ui]; wv=text(r.get('Value')); ws=status(r.get('Variance Color'))
+  vision2030_contemporary_site\run_vision2030.py:279:  result='PASS' if sv==wv and ss==ws else 'FAIL'; mismatches += result!='PASS'
+> vision2030_contemporary_site\run_vision2030.py:280:  rows_out.append({'Scope ID':sid,'UI Metric':ui,'Source Sheet':sheet,'Source Row':rownum,'Location Type':text(r.get('Location Type')),'Location':text(r.get('Location')),'Division':text(r.get('Division')),'Website Value':sv,'Workbook Value':wv,'Website Status':ss,'Workbook Status':ws,'Goal':text(r.get('Goal')),'Data As Of':text(r.get('Data As Of')),'Result':result})
+  vision2030_contemporary_site\run_vision2030.py:281: GENERATED.mkdir(exist_ok=True)
+  vision2030_contemporary_site\run_vision2030.py:282: with (GENERATED/'scope_metric_audit.csv').open('w',newline='',encoding='utf-8-sig') as f:
+  vision2030_contemporary_site\run_vision2030.py:283:  w=csv.DictWriter(f,fieldnames=list(rows_out[0])); w.writeheader(); w.writerows(rows_out)
+> vision2030_contemporary_site\run_vision2030.py:284: summary_json={'sourceRowsMapped':len(source_map),'generatedScopes':len(generated['scopes']),'generatedMetrics':len(generated['metrics']),'valueStatusMismatches':mismatches,'conflictingDuplicateKeys':len(duplicates),'auditPass':mismatches==0 and len(duplicates)==0}
+  vision2030_contemporary_site\run_vision2030.py:285: (GENERATED/'validation_summary.json').write_text(json.dumps(summary_json,indent=2),encoding='utf-8')
+  vision2030_contemporary_site\run_vision2030.py:286: return summary_json
+  vision2030_contemporary_site\run_vision2030.py:287:
+  vision2030_contemporary_site\run_vision2030.py:288:def inject(template_path,out_path,generated):
+> vision2030_contemporary_site\run_vision2030.py:289: html=template_path.read_text(encoding='utf-8'); old,start,end=model(html); payload=json.dumps(generated,ensure_ascii=False,separators=(',',':')); rendered=html[:start]+payload+html[end:]; temp=out_path.with_suffix('.tmp'); temp.write_text(rendered,encoding='utf-8'); temp.replace(out_path); check,cs,ce=model(rendered); assert check['_source']==generated['_source']; assert html[:start]==rendered[:cs] and html[end:]==rendered[ce:]
+  vision2030_contemporary_site\run_vision2030.py:290:class Handler(SimpleHTTPRequestHandler):
+  vision2030_contemporary_site\run_vision2030.py:291: def end_headers(self): self.send_header('Cache-Control','no-store'); super().end_headers()
+  vision2030_contemporary_site\run_vision2030.py:292:def serve(port):
+  vision2030_contemporary_site\run_vision2030.py:301: finally: server.server_close()
+  vision2030_contemporary_site\run_vision2030.py:302:def main():
+  vision2030_contemporary_site\run_vision2030.py:303: ap=argparse.ArgumentParser(); ap.add_argument('--workbook',type=Path); ap.add_argument('--output-root',type=Path,default=OUTPUT); ap.add_argument('--port',type=int,default=8000); ap.add_argument('--build-only',action='store_true'); a=ap.parse_args(); workbook=(a.workbook.resolve() if a.workbook else latest(a.output_root.resolve())); print('Workbook:',workbook)
+> vision2030_contemporary_site\run_vision2030.py:304: book=load_workbook(workbook,read_only=True,data_only=True); required={'Vision 2030',*SHEETS}; missing=required-set(book.sheetnames)
+  vision2030_contemporary_site\run_vision2030.py:305: if missing: raise ValueError('Missing sheets: '+', '.join(sorted(missing)))
+  vision2030_contemporary_site\run_vision2030.py:306: template,_,_=model((TEMPLATES/'briefing.html').read_text(encoding='utf-8')); generated,summary,details,source_map,duplicates=build(template,book,workbook); validation=audit(generated,summary,details,source_map,duplicates); print(json.dumps(validation,indent=2))
+  vision2030_contemporary_site\run_vision2030.py:307: if not validation['auditPass']: raise RuntimeError('Validation failed. Site was not launched. Review generated audits.')
+
+
+

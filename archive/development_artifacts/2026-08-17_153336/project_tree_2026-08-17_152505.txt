@@ -1,0 +1,189 @@
+DATA LINK LAYER EXTRACTION
+
+[DIR] archive | Directory
+    [DIR] superseded_sandboxes_2026-08-17 | Directory
+        [FILE] sandbox.py [0.0624 MB] | LEGACY SANDBOX - DO NOT USE
+        [FILE] sandbox_old.py [0.0660 MB] | PYTHON SCRIPT
+        [FILE] sandbox_updated.py [0.0659 MB] | PYTHON SCRIPT
+        [FILE] sandbox_updated_v2.py [0.0110 MB] | PYTHON SCRIPT
+[FILE] create_project_inventory.py [0.0100 MB] | INVENTORY SCRIPT
+[FILE] GetAllMetricsWithLinks_response.txt [0.0195 MB] | UNCLASSIFIED
+[DIR] html pages | Directory
+    [FILE] page1.html [0.4751 MB] | HTML FILE
+    [FILE] page2.html [0.4751 MB] | HTML FILE
+    [FILE] page3.txt [0.4751 MB] | UNCLASSIFIED
+[DIR] output | Directory
+    [DIR] 2026-07-22_140459 | Directory
+        [FILE] vision2030_metrics_2026-07-22_140459.csv [3.3008 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_140459.json [15.1371 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_144233 | Directory
+        [FILE] vision2030_business_table_2026-07-22_144233.csv [0.0020 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_2026-07-22_144233.csv [3.2941 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_144233.json [15.1305 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_151549 | Directory
+        [FILE] vision2030_business_table_2026-07-22_151549.csv [0.0021 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_151549.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_151549.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_153443 | Directory
+        [FILE] vision2030_business_table_2026-07-22_153443.csv [0.0021 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_business_table_2026-07-22_153443.xlsx [0.0066 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_153443.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_153443.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_153950 | Directory
+        [FILE] vision2030_business_table_2026-07-22_153950.xlsx [0.0066 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_153950.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_153950.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_162712 | Directory
+        [FILE] vision2030_business_table_2026-07-22_162712.xlsx [0.7278 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_162712.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_162712.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_170741 | Directory
+        [FILE] vision2030_business_table_2026-07-22_170741.xlsx [0.3981 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_170741.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_170741.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_172837 | Directory
+    [DIR] 2026-07-22_172902 | Directory
+        [FILE] vision2030_metrics_raw_2026-07-22_172902.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_172902.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_173112 | Directory
+        [FILE] vision2030_business_table_2026-07-22_173112.xlsx [0.0119 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_173112.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_173112.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_174058 | Directory
+        [FILE] vision2030_business_table_2026-07-22_174058.xlsx [0.3967 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_174058.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_174058.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-07-22_180442 | Directory
+        [FILE] vision2030_business_table_2026-07-22_180442.xlsx [0.4074 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-07-22_180442.csv [3.2755 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-07-22_180442.json [15.0265 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-14_094137 | Directory
+        [FILE] vision2030_business_table_2026-08-14_094137.xlsx [0.0066 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-14_094137.csv [3.3359 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-14_094137.json [15.3132 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-14_100212 | Directory
+        [FILE] vision2030_business_table_2026-08-14_100212.xlsx [0.4116 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-14_100212.csv [3.3359 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-14_100212.json [15.3132 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-14_154057 | Directory
+    [DIR] 2026-08-14_163143 | Directory
+        [FILE] vision2030_metrics_raw_2026-08-14_163143.csv [3.3552 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-14_163143.json [15.4038 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-14_163435 | Directory
+        [FILE] division_mapping_audit_2026-08-14_163435.csv [2.4129 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_business_table_2026-08-14_163435.xlsx [0.4168 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-14_163435.csv [3.3552 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-14_163435.json [15.4038 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-14_174940 | Directory
+    [DIR] 2026-08-14_175014 | Directory
+        [FILE] vision2030_metrics_raw_2026-08-14_175014.csv [3.3552 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-14_175014.json [15.4038 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-14_175346 | Directory
+        [FILE] division_mapping_audit_2026-08-14_175346.csv [2.3774 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_business_table_2026-08-14_175346.xlsx [0.3971 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-14_175346.csv [3.3552 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-14_175346.json [15.4038 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-17_005725 | Directory
+        [FILE] division_mapping_audit_2026-08-17_005725.csv [2.3774 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_business_table_2026-08-17_005725.xlsx [0.4158 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-17_005725.csv [3.3484 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-17_005725.json [15.3970 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-17_012255 | Directory
+        [FILE] vision2030_metrics_raw_2026-08-17_012255.csv [3.3484 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-17_012255.json [15.3970 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-17_012508 | Directory
+        [FILE] division_mapping_audit_2026-08-17_012508.csv [5.0821 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_business_table_2026-08-17_012508.xlsx [0.3993 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-17_012508.csv [3.3484 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-17_012508.json [15.3970 MB] | EXTRACTION OUTPUT
+    [DIR] 2026-08-17_093557 | Directory
+        [FILE] division_mapping_audit_2026-08-17_093557.csv [5.0821 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_business_table_2026-08-17_093557.xlsx [0.4174 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_metrics_raw_2026-08-17_093557.csv [3.3552 MB] | EXTRACTION OUTPUT
+        [FILE] vision2030_raw_2026-08-17_093557.json [15.4038 MB] | EXTRACTION OUTPUT
+[FILE] page 1.txt [0.4633 MB] | UNCLASSIFIED
+[FILE] page 2.txt [0.4943 MB] | UNCLASSIFIED
+[FILE] page 3.txt [0.4943 MB] | UNCLASSIFIED
+[FILE] project_inventory_2026-08-17_152352.csv [0.0000 MB] | INVENTORY ARTIFACT
+[FILE] project_tree_2026-08-17_152352.txt [0.0000 MB] | INVENTORY ARTIFACT
+[FILE] sandbox_updated_v3.py [0.0760 MB] | ACTIVE SANDBOX
+[FILE] Vision 2030 Metrics_YTD June 2026 Report.xlsx [0.1360 MB] | EXCEL WORKBOOK
+[FILE] vision 2030.txt [12.7526 MB] | UNCLASSIFIED
+[DIR] vision2030_certified_updater | Directory
+[FILE] vision2030_certified_updater.zip [0.0053 MB] | ARCHIVE OR PACKAGE
+    [FILE] INSTALL.txt [0.0002 MB] | UNCLASSIFIED
+    [FILE] run_vision2030.py [0.0123 MB] | PYTHON SCRIPT
+[DIR] vision2030_contemporary_site | Directory
+[FILE] vision2030_contemporary_site.zip [0.3476 MB] | ARCHIVE OR PACKAGE
+    [FILE] apply_reset_and_reporting_labels.py [0.0057 MB] | ONE-TIME PATCH SCRIPT
+    [FILE] briefing.html [3.1724 MB] | HTML FILE
+    [FILE] briefing_selector_sections.txt [0.2194 MB] | UNCLASSIFIED
+    [FILE] data_explorer.html [3.2034 MB] | HTML FILE
+    [DIR] generated | Directory
+        [FILE] scope_metric_audit.csv [1.1069 MB] | GENERATED WEBSITE ARTIFACT
+        [FILE] validation_summary.json [0.0002 MB] | GENERATED WEBSITE ARTIFACT
+    [FILE] index.html [0.0001 MB] | HTML FILE
+    [FILE] insights.html [3.2034 MB] | HTML FILE
+    [FILE] inspect_briefing_selector.py [0.0030 MB] | INSPECTION SCRIPT
+    [FILE] patch_selector_metadata.py [0.0065 MB] | PYTHON SCRIPT
+    [FILE] README.txt [0.0006 MB] | UNCLASSIFIED
+    [DIR] reset_label_backups | Directory
+        [DIR] 2026-08-17_150009 | Directory
+            [FILE] run_vision2030.py [0.0162 MB] | ACTIVE WEBSITE RUNNER
+            [DIR] templates | Directory
+                [FILE] briefing.html [0.4621 MB] | ACTIVE WEBSITE TEMPLATE
+                [FILE] data_explorer.html [0.4932 MB] | ACTIVE WEBSITE TEMPLATE
+                [FILE] insights.html [0.4932 MB] | ACTIVE WEBSITE TEMPLATE
+    [FILE] run_local.ps1 [0.0002 MB] | UNCLASSIFIED
+    [FILE] run_vision2030.py [0.0162 MB] | ACTIVE WEBSITE RUNNER
+    [FILE] run_vision2030_backup_2026-08-17_135131.py [0.0057 MB] | RUNNER BACKUP
+    [FILE] run_vision2030_backup_2026-08-17_135156.py [0.0057 MB] | RUNNER BACKUP
+    [FILE] run_vision2030_backup_2026-08-17_135414.py [0.0057 MB] | RUNNER BACKUP
+    [FILE] run_vision2030_backup_2026-08-17_140857.py [0.0057 MB] | RUNNER BACKUP
+    [DIR] runner_backups | Directory
+        [FILE] run_vision2030_2026-08-17_142922.py [0.0132 MB] | RUNNER BACKUP
+    [DIR] template_backups | Directory
+        [DIR] 2026-08-17_142746 | Directory
+            [FILE] briefing.html [0.4633 MB] | TEMPLATE BACKUP
+            [FILE] data_explorer.html [0.4943 MB] | TEMPLATE BACKUP
+            [FILE] insights.html [0.4943 MB] | TEMPLATE BACKUP
+        [DIR] 2026-08-17_142842 | Directory
+            [FILE] briefing.html [0.4633 MB] | TEMPLATE BACKUP
+            [FILE] data_explorer.html [0.4943 MB] | TEMPLATE BACKUP
+            [FILE] insights.html [0.4943 MB] | TEMPLATE BACKUP
+        [DIR] 2026-08-17_144636_pre_cascade | Directory
+            [FILE] briefing.html [0.4633 MB] | TEMPLATE BACKUP
+            [FILE] data_explorer.html [0.4943 MB] | TEMPLATE BACKUP
+            [FILE] insights.html [0.4943 MB] | TEMPLATE BACKUP
+    [DIR] templates | Directory
+        [FILE] briefing.html [0.4627 MB] | ACTIVE WEBSITE TEMPLATE
+        [FILE] data_explorer.html [0.4938 MB] | ACTIVE WEBSITE TEMPLATE
+        [FILE] insights.html [0.4938 MB] | ACTIVE WEBSITE TEMPLATE
+[DIR] vision2030_dynamic_site | Directory
+[FILE] vision2030_dynamic_site.zip [0.3545 MB] | ARCHIVE OR PACKAGE
+    [FILE] briefing.html [0.0003 MB] | HTML FILE
+    [FILE] data_explorer.html [0.0003 MB] | HTML FILE
+    [DIR] generated | Directory
+        [FILE] website_data.json [3.1407 MB] | GENERATED WEBSITE ARTIFACT
+    [FILE] index.html [0.0001 MB] | HTML FILE
+    [FILE] insights.html [0.0003 MB] | HTML FILE
+    [DIR] legacy | Directory
+        [FILE] briefing.html [0.4633 MB] | HTML FILE
+        [FILE] data_explorer.html [0.4943 MB] | HTML FILE
+        [FILE] insights.html [0.4943 MB] | HTML FILE
+    [FILE] README.txt [0.0005 MB] | UNCLASSIFIED
+    [FILE] run_local.ps1 [0.0002 MB] | UNCLASSIFIED
+    [FILE] run_vision2030.py [0.0110 MB] | PYTHON SCRIPT
+    [FILE] site.css [0.0039 MB] | UNCLASSIFIED
+    [FILE] site.js [0.0066 MB] | UNCLASSIFIED
+    [FILE] start_server.py [0.0007 MB] | PYTHON SCRIPT
+[FILE] vision2030_extraction.py [0.0760 MB] | LOCKED MAIN EXTRACTOR
+[DIR] vision2030_static_site | Directory
+[FILE] vision2030_static_site.zip [0.3466 MB] | ARCHIVE OR PACKAGE
+    [FILE] briefing.html [0.4633 MB] | HTML FILE
+    [FILE] data_explorer.html [0.4943 MB] | HTML FILE
+    [FILE] index.html [0.0003 MB] | HTML FILE
+    [FILE] insights.html [0.4943 MB] | HTML FILE
+    [FILE] README.txt [0.0005 MB] | UNCLASSIFIED
+    [FILE] run_local.ps1 [0.0002 MB] | UNCLASSIFIED
+    [FILE] start_server.py [0.0007 MB] | PYTHON SCRIPT

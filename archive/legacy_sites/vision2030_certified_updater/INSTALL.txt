@@ -1,0 +1,1 @@
+Copy run_vision2030.py into the existing vision2030_contemporary_site folder, replacing the prior proof-of-concept runner. Keep the existing templates folder unchanged. Then run the script with the project .venv Python.

@@ -1,0 +1,21 @@
+﻿Category,Aspiration,Metric,Location,Value,Goal,Variance Direction,Variance,Variance Color,YTD,Data As Of
+LEARNING,Dynamic Learning Community,Internal Leader Fill Rate,AdventHealth,74.10%,N/A,→,N/A,GRAY,N/A,Jun-26
+LEARNING,Dynamic Learning Community,Leader Effectiveness,AdventHealth,85.8,≥ 81,↗,0.10%,GREEN,N/A,Mar-26
+LEARNING,Dynamic Learning Community,Opportunity to Learn and Grow,AdventHealth,81,≥ 79,↗,0.03%,GREEN,N/A,Mar-26
+TEAM,Team Member Promise,Forecast and Hire,AdventHealth,"12,510","≥ 12,176",↗,0%,GREEN,N/A,Jun-26
+TEAM,Team Member Promise,Team Member Engagement,AdventHealth,82,≥ 81,↗,0.01%,GREEN,N/A,Mar-26
+TEAM,Team Member Promise,Total Turnover (Rolling 12),AdventHealth,16.90%,≤ 17.3%,↗,0.40%,GREEN,N/A,Jun-26
+TEAM,Team Member Promise,Physician Engagement,AdventHealth,66,≥ 75,↘,-12%,RED,N/A,2024
+CONSUMER,Consumer Focused Connected Network,Digital Tool Utilization,AdventHealth,3.2M,≥ 3.6M,↘,-11.10%,RED,N/A,May-26
+CONSUMER,Consumer Focused Connected Network,LTR ED,AdventHealth,69,≥ 75,↘,-8%,RED,70,May-26
+CONSUMER,Consumer Focused Connected Network,LTR Inpatient,AdventHealth,64,≥ 75,↘,-14.70%,RED,62,May-26
+CONSUMER,Consumer Focused Connected Network,LTR Med Practice,AdventHealth,67,≥ 75,↘,-10.70%,RED,71,May-26
+CLINICAL,Clinical Excellence,Length of Stay O/E,AdventHealth,Coming Soon,N/A,→,N/A,GRAY,N/A,N/A
+CLINICAL,Clinical Excellence,CMS Star Rating,AdventHealth,63.40%,4 & 5 Stars,,,,,May-26
+CLINICAL,Clinical Excellence,Leapfrog Safety Grade,AdventHealth,65.20%,A's,,,,,Apr-26
+FINANCIAL,Financial Strength and Growth,EBITDA Dollars,AdventHealth,$350.6M,≥ $279.5M,↗,25.40%,GREEN,N/A,May-26
+FINANCIAL,Financial Strength and Growth,TOR Dollars,AdventHealth,$2.1B,≥ $2B,↗,3.20%,GREEN,N/A,May-26
+FINANCIAL,Financial Strength and Growth,TOR Growth Rate,AdventHealth,8.10%,≥ 12.3%,↘,-4.20%,RED,N/A,May-26
+RISK,Managed Population Risk,Domestic Spend,AdventHealth,75.50%,≥ 76.6%,↘,-1.40%,RED,N/A,May-26
+WPC,Whole-Person Care,Community Impact,AdventHealth,Coming Soon,N/A,→,N/A,GRAY,N/A,N/A
+WPC,Whole-Person Care,Mission Integration Plan,AdventHealth,Coming Soon,N/A,→,N/A,GRAY,N/A,N/A

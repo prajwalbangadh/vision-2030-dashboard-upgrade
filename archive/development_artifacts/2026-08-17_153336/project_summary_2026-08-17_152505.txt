@@ -1,0 +1,47 @@
+DATA LINK LAYER EXTRACTION PROJECT INVENTORY
+Generated: 2026-08-17 15:25:06
+Root: C:\Users\PBA96B\OneDrive - AdventHealth\Documents\DATA LINK LAYER EXTRACTION
+
+Directories scanned: 44
+Files scanned: 143
+Total file size excluding .venv, .git, and __pycache__: 452.20 MB
+
+CLASSIFICATION SUMMARY
+EXTRACTION OUTPUT                  Files:     64  Size:       410.67 MB
+HTML FILE                          Files:     17  Size:        13.43 MB
+UNCLASSIFIED                       Files:     16  Size:        14.93 MB
+TEMPLATE BACKUP                    Files:      9  Size:         4.36 MB
+PYTHON SCRIPT                      Files:      8  Size:         0.17 MB
+ACTIVE WEBSITE TEMPLATE            Files:      6  Size:         2.90 MB
+RUNNER BACKUP                      Files:      5  Size:         0.04 MB
+ARCHIVE OR PACKAGE                 Files:      4  Size:         1.05 MB
+GENERATED WEBSITE ARTIFACT         Files:      3  Size:         4.25 MB
+ACTIVE WEBSITE RUNNER              Files:      2  Size:         0.03 MB
+INVENTORY ARTIFACT                 Files:      2  Size:         0.00 MB
+ACTIVE SANDBOX                     Files:      1  Size:         0.08 MB
+EXCEL WORKBOOK                     Files:      1  Size:         0.14 MB
+INSPECTION SCRIPT                  Files:      1  Size:         0.00 MB
+INVENTORY SCRIPT                   Files:      1  Size:         0.01 MB
+LEGACY SANDBOX - DO NOT USE        Files:      1  Size:         0.06 MB
+LOCKED MAIN EXTRACTOR              Files:      1  Size:         0.08 MB
+ONE-TIME PATCH SCRIPT              Files:      1  Size:         0.01 MB
+
+EXTENSION SUMMARY
+.html                Files:     32
+.csv                 Files:     31
+.json                Files:     23
+.py                  Files:     21
+.xlsx                Files:     15
+.txt                 Files:     12
+.zip                 Files:      4
+.ps1                 Files:      3
+.css                 Files:      1
+.js                  Files:      1
+
+PROTECTED FILE CHECK
+C:\Users\PBA96B\OneDrive - AdventHealth\Documents\DATA LINK LAYER EXTRACTION\vision2030_extraction.py | Exists: True
+C:\Users\PBA96B\OneDrive - AdventHealth\Documents\DATA LINK LAYER EXTRACTION\sandbox_updated_v3.py | Exists: True
+C:\Users\PBA96B\OneDrive - AdventHealth\Documents\DATA LINK LAYER EXTRACTION\vision2030_contemporary_site\run_vision2030.py | Exists: True
+
+IMPORTANT
+This inventory operation did not move, rename, edit, archive, or delete any existing project file.

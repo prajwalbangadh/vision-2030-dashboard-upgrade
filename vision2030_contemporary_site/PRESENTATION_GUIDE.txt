@@ -1,0 +1,949 @@
+VISION 2030 DECISION-SUPPORT SITE
+PRESENTATION GUIDE AND SPEAKING NOTES
+
+
+PURPOSE OF THESE NOTES
+
+Use this as a speaking guide, not as a word-for-word script you must memorize.
+
+Numbers change whenever a newer workbook is processed. Read important numbers from the live page instead of quoting a number from these notes. The website displays the selected workbook batch, reporting dates, record counts, and denominators alongside the analysis.
+
+
+======================================================================
+1. SUGGESTED OPENING
+======================================================================
+
+“This is a redesigned decision-support experience for the Vision 2030 business data. The goal was not to make the workbook look more decorative. The goal was to make it faster to answer three different kinds of questions:
+
+1. What requires executive attention?
+2. What is happening within a comparable peer group?
+3. What exactly exists in the source data?”
+
+“Those three questions became the three main pages: Briefing, Insights, and Data Explorer.”
+
+“The original site was visually busy but did not consistently communicate denominator, hierarchy, date, or whether a target comparison was defensible. We deliberately reduced decorative elements and made every card and chart earn its place.”
+
+“The most important principle is that the website does not invent data. Every displayed statistic is rebuilt from the latest workbook, and records that cannot support a defensible conclusion remain visible as unavailable.”
+
+
+======================================================================
+2. THE REDESIGN IN ONE MINUTE
+======================================================================
+
+If time is limited, explain the redesign using these five points:
+
+1. ONE AUDITED DATA MODEL
+
+All three pages are generated from the same normalized model. A number cannot quietly mean one thing on Briefing and something different on Insights.
+
+2. DIFFERENT PAGES FOR DIFFERENT DECISIONS
+
+Briefing is for executive orientation.
+Insights is for comparable peer analysis.
+Data Explorer is for traceability and investigation.
+
+3. HIERARCHY IS PRESERVED
+
+Corporate, Division, Region, Market, Facility, Campus, Hospital, FRL, Costing Company, and Cost Center are treated as different analytical levels. They are not casually combined.
+
+4. TARGETS ARE LOCAL AND CONSERVATIVE
+
+The site uses the goal attached to the same row whenever a comparison is valid. It does not apply an enterprise target to every lower-level record merely because that creates a color.
+
+5. EVERY VISUAL ANSWERS A QUESTION
+
+We removed chart clutter. The visuals now answer questions about attainment, gaps, freshness, distribution, peer differences, relationships, and source composition.
+
+
+======================================================================
+3. WHY THE SITE DOES NOT COPY THE EXCEL SHEETS EXACTLY
+======================================================================
+
+Suggested explanation:
+
+“The workbook is still the source of truth, but a workbook and a decision-support website serve different purposes.”
+
+“Excel is excellent for inspecting rows and preserving operational hierarchy. That capability is retained in Data Explorer. The Briefing and Insights pages reorganize the same records around questions a user is trying to answer.”
+
+“Creating a separate website page for every Excel sheet or every hierarchy level would be straightforward, but it would duplicate controls and make cross-functional interpretation harder. Instead, the business-area tabs preserve the workbook structure while the filters dynamically expose only the levels that exist for the selected metric.”
+
+
+======================================================================
+4. SHARED VISUAL LANGUAGE
+======================================================================
+
+POINT TO THE HEADER AND PAGE STYLE.
+
+“The pages intentionally use one visual language: the same typography, spacing, card geometry, navigation, status colors, and interaction patterns.”
+
+Color meanings:
+
+Green     = met a defensible local goal
+Red       = missed a defensible local goal
+Gray      = status unavailable or not defensibly comparable
+Blue      = neutral information, counts, navigation, and reporting context
+Aqua      = freshness or supporting context
+
+Important point:
+
+“Gray does not mean average performance. Gray means we should not make a performance claim from the available fields.”
+
+Business areas also retain consistent accent colors so users can orient themselves without turning the page into a rainbow dashboard.
+
+Why there is no yellow status:
+
+“The source did not provide a consistently defensible yellow threshold. Adding one would have required inventing a rule. We chose accuracy over an extra color.”
+
+
+======================================================================
+5. SOURCE AND AUDIT CHIP
+======================================================================
+
+POINT TO “CERTIFIED WORKBOOK BATCH” IN THE TOP-RIGHT AREA.
+
+Suggested explanation:
+
+“This chip identifies the output batch currently powering the site. It also shows the detail-row and unique-scope counts. This gives the audience immediate provenance and makes it harder to mistake an old screenshot for the current run.”
+
+“When we rebuild, the launcher selects the latest timestamped workbook, normalizes it, runs the audit, and injects the same model into all three pages.”
+
+Do not memorize the batch or row count. Read it from the live chip.
+
+
+======================================================================
+6. PAGE ONE: EXECUTIVE BRIEFING
+======================================================================
+
+PURPOSE
+
+“Briefing answers: Where are we, what deserves attention, and how fresh or complete is the executive picture?”
+
+
+6A. SYSTEM OR DIVISION CONTROL
+
+POINT TO VIEW LEVEL AND DIVISION.
+
+“The executive view is intentionally limited to AdventHealth System and direct Division summaries.”
+
+“When I select a Division, the page uses only rows that the workbook explicitly labels as Division. It does not average facilities, FRLs, regions, or cost centers to manufacture a division result.”
+
+“The Division list shows only divisions that possess direct Division records. That prevents empty or unresolved reporting labels from appearing as if they were valid executive summaries.”
+
+Why lower levels are not in this selector:
+
+“Lower levels differ by metric. Team data may report through FRL or Costing Company, physician data through Hospital, consumer data through Market or Facility, and clinical data through Facility or Campus. A universal subregion scorecard would appear complete while actually mixing incompatible structures.”
+
+Where lower-level investigation happens:
+
+“Insights compares one selected hierarchy at a time. Data Explorer provides row-level filtering down to individual locations.”
+
+
+6B. MIXED-DATE NOTICE
+
+POINT TO THE AMBER NOTICE WHEN PRESENT.
+
+“This is a mixed-date snapshot. Each metric keeps its own reporting date. The notice prevents the audience from assuming all cards describe one synchronized moment.”
+
+“We intentionally do not convert these dates into a fake trend line.”
+
+
+6C. PARTIAL DIVISION NOTICE
+
+POINT TO THE BLUE NOTICE AFTER SELECTING A DIVISION.
+
+“A partial scorecard is not an error. It means the workbook contains direct Division records for some metrics while other metrics report only through another hierarchy.”
+
+“Rather than filling the gaps with an unsupported rollup, the site tells us exactly how many direct records exist and marks the rest unavailable.”
+
+
+6D. FOUR EXECUTIVE KPI CARDS
+
+GOAL ATTAINMENT
+
+“This percentage is met divided by met plus missed. Records without a defensible goal comparison do not enter the denominator.”
+
+[Read the live numerator and denominator shown beneath the percentage.]
+
+MISSED GOAL
+
+“This is the number of directly comparable metrics that missed their local goal. The supporting sentence identifies the largest defensible normalized gap.”
+
+STATUS UNAVAILABLE
+
+“These records may still contain a value. Unavailable means the site cannot defend a red or green conclusion from the workbook fields.”
+
+REPORTED VALUES
+
+“This separates reporting presence from target comparability. A value can be reported even when goal status is unavailable.”
+
+
+6E. EXECUTIVE READOUT
+
+POINT TO THE THREE EVIDENCE-BACKED TAKEAWAYS.
+
+“This keeps the useful idea of a concise headline from the former site, but removes promotional language and hardcoded conclusions.”
+
+The three tiles are deterministic:
+
+- Attention = largest defensible normalized missed-goal gap
+- Protect = largest defensible positive local-goal margin
+- Data confidence = unavailable-status count and reporting-date context
+
+“Every tile includes its value, local goal, and reporting date where applicable. The underlying record is selected by code from the current filtered scope, not written manually for one workbook run.”
+
+“The sentence does not claim that a metric is a driver or that leadership should take a specific action. It identifies the strongest evidence and leaves the decision discussion to the briefing.”
+
+
+6F. DIRECT DIVISION STATUS-COMPOSITION CHART
+
+POINT TO “DIRECT DIVISION STATUS COMPOSITION.”
+
+Question answered:
+
+“Across direct Division rows, what share of each division’s eligible metrics meets its own local goals?”
+
+How to read it:
+
+- Green is met, red is missed, and gray is status unavailable.
+- Segment widths use all direct Division records so missing comparability remains visible.
+- The label reports met, missed, and unavailable counts.
+- The percentage on the right uses met divided by met plus missed.
+- The right side also shows the numerator and eligible denominator.
+- Divisions are ranked by attainment rate.
+
+Important caveat:
+
+“This is not a weighted enterprise league table. Divisions can have different available metric counts, which is why the denominator is shown.”
+
+
+6G. METRICS BY REPORTING DATE BAR CHART
+
+POINT TO “METRICS BY REPORTING DATE.”
+
+Question answered:
+
+“How much of the executive snapshot shares each reporting label?”
+
+“Longer bars mean more metrics have that label. They do not mean performance was higher or lower in that period.”
+
+“This visual exists because freshness is part of decision quality. It exposes older and missing reporting labels instead of hiding them behind one dashboard date.”
+
+
+6H. PERFORMANCE BY STRATEGIC ASPIRATION
+
+POINT TO THE ASPIRATION CARDS.
+
+Question answered:
+
+“Which strategic aspirations have stronger or weaker goal attainment among directly comparable metrics?”
+
+How to read them:
+
+- The large percentage uses only eligible metrics.
+- The stacked bar retains met, missed, and unavailable portions.
+- Each aspiration is equal-weight by metric, not weighted by dollars, employees, or patient volume.
+
+Important caveat:
+
+“This is a portfolio navigation device, not a composite enterprise index. We do not have defensible weights for combining fundamentally different metrics.”
+
+
+6I. PRIORITY GAPS
+
+POINT TO “PRIORITY GAPS.”
+
+Question answered:
+
+“Among metrics that missed and have a numeric local goal, which have the largest normalized gaps?”
+
+“Normalizing to the local goal lets us compare different scales more fairly than comparing raw units.”
+
+“The ranking excludes records whose goal direction or numeric comparison cannot be defended.”
+
+
+6J. STRENGTHS TO PROTECT
+
+POINT TO “STRENGTHS TO PROTECT.”
+
+“This is the positive counterpart to priority gaps. It highlights the largest defensible margins above or below the local goal, depending on the correct direction for the metric.”
+
+“It is included so the briefing is not exclusively deficit-focused.”
+
+
+6K. ASPIRATION-GROUPED METRIC SCORECARD
+
+POINT TO THE SCORECARD.
+
+“This retains the most useful structural idea from the former metric board: metrics are grouped under their strategic aspirations.”
+
+“Unlike the former board, the groups do not use fixed heights, so aspirations with fewer metrics do not create large empty panels.”
+
+“The scorecard retains every Vision 2030 metric even if its status is unavailable or a Division record is absent. Each metric keeps its own date rather than inheriting one global page month.”
+
+Each card preserves:
+
+- Metric and business area
+- Reported value
+- Local goal
+- Reporting date
+- Derived status
+- Reason the status is or is not available
+
+“This is where breadth and transparency matter more than reducing the page to a few headline numbers.”
+
+
+6L. DIVISION HEATMAP
+
+POINT TO THE HEATMAP AT THE BOTTOM OF SYSTEM VIEW.
+
+Question answered:
+
+“Where do direct Division records meet, miss, or lack a defensible status across metrics?”
+
+“The heatmap is compact pattern detection. It does not fill missing cells and does not roll lower-level records upward.”
+
+“Hovering a cell reveals the value, local goal, and date.”
+
+
+======================================================================
+7. PAGE TWO: INSIGHTS
+======================================================================
+
+PURPOSE
+
+“Insights answers a narrower question: What is happening within a valid, like-for-like peer cohort?”
+
+“Instead of displaying every possible breakdown at once, it asks the user to define one specific comparison.”
+
+
+7A. CASCADING FILTERS
+
+POINT LEFT TO RIGHT ACROSS THE FILTER BAR.
+
+Business Area -> Metric -> Compare As -> Division -> Data As Of
+
+“Every dropdown is rebuilt from records that actually exist after the previous selection.”
+
+Examples:
+
+- Team Member Engagement can be compared as FRL.
+- Physician Engagement can be compared as Hospital.
+- CMS ratings can be compared as Facility.
+- Leapfrog grades can be compared as Campus.
+
+“The counts inside the dropdowns show the available sample before I select it.”
+
+“If a metric has only one valid level or reporting date, that control is locked. We do not ask users to make a meaningless choice.”
+
+
+7B. COMPARABLE COHORT NOTICE
+
+POINT TO THE BLUE COHORT SENTENCE.
+
+“This sentence is the contract for every statistic below it. It states the metric, hierarchy, record count, division scope, and reporting selection.”
+
+“When a filter changes, the cohort and every chart recalculate together.”
+
+
+7C. PEER KPI CARDS
+
+PEER RECORDS
+
+“This is the number of rows in the selected cohort, with the numeric subset stated beneath it.”
+
+MEET LOCAL GOAL
+
+“This shows the eligible numerator and denominator, using each peer’s own local goal.”
+
+MISS LOCAL GOAL
+
+“This counts defensible misses and separately states how many status-unavailable records were excluded.”
+
+PEER MEDIAN
+
+“The median is more robust than the average when a peer distribution has unusually high or low values.”
+
+
+7D. HIGHEST REPORTED VALUES
+
+“This answers a descriptive ranking question only.”
+
+Important phrase to say:
+
+“Highest is not automatically best. Directionality depends on the metric.”
+
+“Bar color is based on local-goal status, which is more informative than assuming a large raw value is positive.”
+
+
+7E. GOAL-STATUS DONUT
+
+“The donut is intentionally limited to three categories: met, missed, and unavailable.”
+
+“A pie-style chart is useful here because the categories are mutually exclusive and few in number. We avoided pie charts for locations or metrics because too many slices would reduce clarity.”
+
+“The center reports attainment among eligible records, while the adjacent labels retain the underlying counts.”
+
+
+7F. VALUE-DISTRIBUTION HISTOGRAM
+
+POINT TO THE HISTOGRAM.
+
+Question answered:
+
+“Are peer values tightly concentrated, widely spread, skewed, or clustered?”
+
+“The sentence above the bars states the observed range and the middle 50 percent. This reveals structure that one median cannot show.”
+
+“The histogram requires numeric data and displays an insufficiency message when the sample is too small.”
+
+
+7G. LARGEST LOCAL-GOAL GAPS
+
+POINT TO THE RED HORIZONTAL BARS.
+
+Question answered:
+
+“Which specific peers are furthest from their defensible local goals?”
+
+“The bars use the normalized percentage gap, not the raw value. Each label shows the reported value and local goal.”
+
+“Rows without a comparable numeric goal cannot appear in this chart.”
+
+
+7H. GOAL ATTAINMENT BY DIVISION
+
+“This retains the selected metric and selected hierarchy, then compares the eligible goal-attainment rate across available Division labels.”
+
+“Every bar shows met, missed, unavailable, and N. This is important because a high percentage based on a small cohort should not be read the same way as a high percentage based on a large cohort.”
+
+“Unresolved source mappings are labeled explicitly rather than silently assigned.”
+
+
+7I. CURRENT VERSUS YTD
+
+This section appears only for metrics that carry both fields.
+
+Suggested explanation:
+
+“This compares the current reading with the workbook’s YTD field. It is not called a monthly trend because two summary fields do not establish a time series.”
+
+
+7J. MATCHED-SCOPE RELATIONSHIP
+
+POINT TO THE SCATTERPLOT AND ITS r/N LABEL.
+
+Question answered:
+
+“When two metrics exist for the exact same normalized locations and hierarchy, how do their values move together descriptively?”
+
+Safeguards:
+
+- Same location type
+- Same selected Division and date restrictions
+- Exact normalized scope match
+- At least five matched and varying numeric pairs
+- Pearson r and N shown together
+
+Required sentence:
+
+“This is descriptive correlation, not evidence that one metric causes the other.”
+
+
+======================================================================
+8. PAGE THREE: DATA EXPLORER
+======================================================================
+
+PURPOSE
+
+“Data Explorer answers: What exact records support the other pages, and how can I investigate them without returning to a static screenshot?”
+
+
+8A. BUSINESS-AREA TABS
+
+“These tabs preserve the recognizable workbook structure: Vision 2030, Learning, Team, Consumer, Clinical, Financial, Risk, and WPC.”
+
+“This is where the site remains closest to Excel while keeping a consistent web experience.”
+
+
+8B. SCORECARD AND WORKBOOK TABLE MODES
+
+SCORECARD
+
+“Scorecard is the business-friendly overview. When multiple hierarchy levels are present, metric cards act as an index instead of producing a misleading combined rate.”
+
+WORKBOOK TABLE
+
+“Workbook table is the source-aligned investigation view. It preserves exact rows, goals, statuses, source variance, source color, YTD, and dates.”
+
+
+8C. EXPLORER FILTERS
+
+Metric -> Compare As -> Division -> Data As Of -> Goal Status -> Search
+
+“The options cascade from the available rows. Selecting a metric chooses a sensible default peer level, but the user can switch to another valid level.”
+
+“All types remains available in the raw table for auditing. When multiple hierarchy levels are mixed, the page displays a warning and suppresses the combined attainment headline.”
+
+“To isolate a named Region, Market, Facility, Campus, Hospital, FRL, Costing Company, or Cost Center, select the appropriate Compare As level and Division, then search for the location.”
+
+
+8D. QUALITY STRIP
+
+FILTERED ROWS
+
+“How many records currently match all filters?”
+
+UNIQUE SCOPES
+
+“How many normalized organizational scopes are represented?”
+
+ELIGIBLE MEETING GOAL
+
+“Displayed only when one metric and one analytical hierarchy make the rate meaningful.”
+
+REPORTING RANGE
+
+“Makes date variation visible in the filtered result.”
+
+
+8E. FILTERED COMPOSITION BARS
+
+“This visual adapts to the current context.”
+
+- In the executive tab, it counts metrics by business area.
+- In a mixed hierarchy audit view, it counts rows by hierarchy level.
+- At one selected hierarchy, it counts available records by Division.
+- At one specific Division, it can summarize the goal-status record mix.
+
+Important caveat:
+
+“These are record counts. They are not workforce size, patient volume, financial weight, or completeness unless a known denominator is supplied.”
+
+
+8F. METRIC CARDS
+
+“When a card contains one executive record, it shows the value, local goal, status, and date.”
+
+“When the tab contains many detail levels, cards guide the user toward a metric and its default comparable level.”
+
+“Selecting a card opens the relevant peer rows in the workbook table.”
+
+
+8G. WORKBOOK TABLE COLUMNS
+
+“The table intentionally keeps derived goal status separate from source variance and source color.”
+
+Why:
+
+“Source variance is a workbook field. Derived status is a conservative analytical interpretation. Combining them would obscure the reasoning.”
+
+“The status basis is shown beneath the status so a user can see why the classification exists or why it is unavailable.”
+
+
+8H. CSV EXPORT
+
+“Export uses the exact current filter set.”
+
+“The browser displays at most 500 rows for responsiveness, but CSV export retains every filtered record.”
+
+
+======================================================================
+9. WHY THERE IS NO MAP
+======================================================================
+
+Suggested explanation:
+
+“A map would be visually attractive, but the current workbook does not provide governed latitude/longitude, FIPS codes, or an approved facility-to-geography reference table.”
+
+“Geocoding location names automatically could place similarly named facilities incorrectly and would create a false sense of precision.”
+
+“We documented a map gate: a geographic view should be added only when validated geographic keys and an explicit unmatched-location report are available.”
+
+
+======================================================================
+10. WHAT WE RETAINED FROM THE FORMER SITE — AND WHAT WE REJECTED
+======================================================================
+
+Suggested transition:
+
+“The redesign was not a rejection of every idea in the former site. We evaluated each structure based on whether it answered a distinct question and whether the workbook could support its calculation.”
+
+
+RETAINED: ASPIRATION-GROUPED METRIC BOARD
+
+“Grouping metrics by aspiration is useful because it connects individual measures to the strategic framework.”
+
+What changed:
+
+- Removed fixed-height panels and large blank areas.
+- Preserved each metric’s own reporting date.
+- Distinguished missing values from status-unavailable values.
+- Added the local goal and status basis.
+- Made the groups responsive rather than forcing a rigid dashboard grid.
+
+
+RETAINED: CONCISE EXECUTIVE HEADLINE
+
+“A short readout is useful when it summarizes evidence rather than adding motivational language.”
+
+What changed:
+
+- Replaced phrases such as “leads a strong board” with factual wording.
+- Replaced manually selected highlights with deterministic selection rules.
+- Added one attention item, one strength, and one data-confidence signal.
+- Included value, goal, date, and evidence context.
+- Kept detailed rankings below as supporting evidence.
+
+
+RETAINED: STACKED DIVISION STATUS COMPOSITION
+
+“The former green/red composition bars communicated more than a plain percentage.”
+
+What changed:
+
+- Added gray for status-unavailable records.
+- Used only direct Division rows.
+- Displayed met, missed, unavailable, numerator, and denominator.
+- Avoided treating missing comparability as either success or failure.
+
+
+REJECTED: REPEATED DIVISION RANKING CHARTS
+
+“The former page showed substantially the same Division attainment percentage in multiple bar charts. Repetition made the page look analytical without answering an additional question.”
+
+Decision:
+
+Keep one composition chart and one metric-level heatmap. Each answers a different question.
+
+
+REJECTED: SYSTEM-VERSUS-DIVISION LEAGUE TABLE
+
+“The System and Division percentages were based on different available metric sets and different denominators. Displaying them on one common scale implied more comparability than the data supported.”
+
+Decision:
+
+Show the System KPI separately and show direct Division composition with its own N. A future common-metric comparison would be permissible only if every displayed scope is evaluated on the same eligible metric set.
+
+
+REJECTED: “APPROACHING GOAL” OR YELLOW STATUS
+
+“The workbook did not provide one governed approaching-goal threshold that applied consistently across metrics.”
+
+Decision:
+
+Use met, missed, and unavailable only. Do not invent an intermediate category for visual variety.
+
+
+REJECTED: ONE GLOBAL REPORTING MONTH
+
+“The former design placed one month above a board containing metrics with different reporting dates.”
+
+Decision:
+
+Preserve the date on every record, show the reporting-date distribution, and display a mixed-date warning.
+
+
+REJECTED: “NOT REPORTED” FOR EVERY GRAY RECORD
+
+“A metric can have a reported value while still lacking a defensible goal comparison. Calling every gray record not reported loses that distinction.”
+
+Decision:
+
+Separate reported-value coverage from derived goal-status availability and state the reason for unavailable status.
+
+
+REJECTED: PROMOTIONAL OR PRESCRIPTIVE HEADLINES
+
+“Language such as ‘strong board’ or ‘protect it’ can sound confident without identifying the analytical basis or operational context.”
+
+Decision:
+
+Use neutral evidence language. The site identifies attention and strength signals; leaders determine the appropriate response.
+
+
+======================================================================
+11. IMPORTANT ANALYTICAL CHOICES
+======================================================================
+
+NO FORCED ROLLUPS
+
+“A facility average is not automatically a valid Division value. We would need denominators or approved weights.”
+
+NO MIXED-HIERARCHY KPI
+
+“Thousands of cost centers should not dominate four Division records in one attainment percentage.”
+
+NO INVENTED TARGETS
+
+“If a comparable target is absent or repeated at an inappropriate level, status remains unavailable.”
+
+NO FAKE TREND
+
+“Current and YTD are presented as a comparison, not a trend line.”
+
+NO UNSUPPORTED CAUSALITY
+
+“Correlation identifies a question for investigation. It does not identify a driver.”
+
+NO SILENT DATA LOSS
+
+“Unavailable and unresolved rows remain visible and explainable.”
+
+NO DECORATIVE CHART QUOTAS
+
+“We did not add a chart merely because a page looked empty. Tables, notices, or unavailable messages are used when they communicate the truth more clearly.”
+
+
+======================================================================
+12. HOW THE BUILD WORKS
+======================================================================
+
+Suggested technical explanation:
+
+“One Python launcher resolves the latest output workbook, normalizes every sheet, validates the record model, writes an audit CSV, injects the same data into all three pages, and starts localhost.”
+
+Command:
+
+cd /Users/prajwalbang/Downloads/vision2030_contemporary_site/vision2030_contemporary_site
+python3 run_vision2030.py
+
+Build without starting localhost:
+
+python3 run_vision2030.py --build-only
+
+“If validation fails, the build stops instead of publishing a potentially inconsistent site.”
+
+“The pages are self-contained with the audited dataset embedded, so the filters and charts recalculate in the browser without a separate database.”
+
+
+======================================================================
+13. FUTURE LLM-GENERATED INSIGHTS
+======================================================================
+
+POINT OUT THAT AUTOMATED NARRATIVE IS GOVERNED, NOT FREE-FORM.
+
+“We created an LLM Insight and Visualization Playbook for future terminal assistants.”
+
+Location:
+
+vision2030_contemporary_site/LLM_INSIGHT_PLAYBOOK.md
+
+“It tells an assistant how to find the latest run, which audited files to reference, how to preserve hierarchy and date context, when a statistic is allowed, how to structure supporting evidence, which charts are appropriate, and which claims are prohibited.”
+
+“The project-level AGENTS.md directs future assistants to read that playbook before changing analytical content.”
+
+“This makes narrative dynamic while reducing the risk that an LLM fills empty space with unsupported conclusions.”
+
+
+======================================================================
+14. RECOMMENDED LIVE DEMO FLOW
+======================================================================
+
+This sequence takes approximately eight to ten minutes.
+
+STEP 1 — BRIEFING, SYSTEM VIEW
+
+- Point to the source batch.
+- Read the live attainment numerator and denominator.
+- Explain unavailable status.
+- Show mixed reporting dates.
+- Walk through the evidence-backed Attention, Protect, and Data Confidence readout.
+- Show direct Division status composition and freshness.
+- Point out that the grouped scorecard retained the useful aspiration structure without the former global date or fixed blank space.
+
+STEP 2 — BRIEFING, SELECT ONE DIVISION
+
+- Select a Division with direct records.
+- Point out that only direct Division rows are used.
+- Explain the partial-scorecard notice.
+- Show that missing metrics remain explicit.
+
+STEP 3 — INSIGHTS, TEAM MEMBER ENGAGEMENT AS FRL
+
+- Read the cohort sentence.
+- Point out the record count inside each filter.
+- Explain median versus distribution.
+- Show the histogram and local-goal gaps.
+- Compare Division attainment with denominators.
+- Show the matched relationship and state that it is noncausal.
+
+STEP 4 — CHANGE TO A DIFFERENT HIERARCHY
+
+- Select Physician Engagement and show Hospital.
+OR
+- Select CMS and show Facility.
+OR
+- Select Leapfrog and show Campus.
+
+Say:
+
+“This is the hierarchy-aware behavior. The options change because the underlying metric structure changes.”
+
+STEP 5 — DATA EXPLORER
+
+- Select a business-area tab.
+- Choose a metric and Compare As level.
+- Show the composition chart.
+- Open Workbook table.
+- Point to local goal, status basis, source variance, YTD, and date.
+- Mention filtered CSV export.
+
+STEP 6 — CLOSE WITH GOVERNANCE
+
+“The site is designed to become more useful as the workbook improves. It does not conceal missing targets, mixed dates, or unresolved mappings. Those limitations are surfaced so they can be fixed at the source.”
+
+
+======================================================================
+15. LIKELY QUESTIONS AND ANSWERS
+======================================================================
+
+Q: WHY DOES A PERCENTAGE DIFFER BETWEEN SYSTEM AND DIVISION?
+
+A: Each scope uses its own direct rows and eligible local-goal denominator. Missing or unavailable metrics can differ by scope.
+
+
+Q: WHY IS A METRIC GRAY WHEN IT HAS A VALUE?
+
+A: A reported value and a defensible goal comparison are separate. The goal may be absent, nonnumeric, inappropriate for that level, or missing a known direction.
+
+
+Q: WHY NOT AVERAGE FACILITIES TO CREATE A DIVISION NUMBER?
+
+A: A valid rollup would require approved weighting or underlying denominators. A simple average could materially misrepresent the Division.
+
+
+Q: WHY ARE ONLY SOME METRICS AVAILABLE IN DIVISION VIEW?
+
+A: Those are the metrics with direct Division rows. Other metrics use different reporting hierarchies and remain explicit rather than reassigned.
+
+
+Q: CAN WE DRILL INTO REGIONS OR FACILITIES?
+
+A: Yes. In Insights, choose the metric and its available Compare As level. In Data Explorer, add Division and location search. Briefing remains System/Division because it is an executive summary.
+
+
+Q: WHY DOES THE PAGE SAY HIGHEST IS NOT AUTOMATICALLY BEST?
+
+A: Some metrics improve when lower. The site avoids assigning meaning to raw magnitude without checking direction and local goal.
+
+
+Q: WHY USE MEDIAN?
+
+A: Median is less distorted by unusually high or low peers. The histogram is shown alongside it so the audience can still see distribution shape.
+
+
+Q: WHY ARE UNAVAILABLE ROWS EXCLUDED FROM ATTAINMENT?
+
+A: Including them as misses would penalize missing comparison logic; including them as met would inflate performance. They are reported separately.
+
+
+Q: WHY ARE DATES MIXED?
+
+A: Metrics have different source reporting cycles. The site preserves each date rather than inventing a common one.
+
+
+Q: IS THE CORRELATION STATISTICALLY SIGNIFICANT?
+
+A: The current page reports a descriptive Pearson relationship and sample size, not a formal causal or inferential study. A separate approved methodology would be required for stronger claims.
+
+
+Q: WHY IS THERE NO MAP?
+
+A: The workbook does not yet include governed geographic keys. A map based only on names could be wrong while looking precise.
+
+
+Q: HOW DO WE KNOW THE SITE USES THE LATEST FILE?
+
+A: The launcher selects the latest timestamped workbook under output, displays its batch on every page, and writes the selected source into validation_summary.json.
+
+
+Q: CAN THE DATA BE EXPORTED?
+
+A: Yes. Data Explorer exports the complete filtered result, including rows beyond the browser’s 500-row display limit.
+
+
+Q: CAN AN LLM WRITE THE INSIGHT TEXT LATER?
+
+A: Yes, but it must follow the project playbook, rebuild from the latest audited run, attach evidence and denominators, and reject unsupported claims.
+
+
+======================================================================
+16. PHRASES TO USE AND AVOID
+======================================================================
+
+USE:
+
+- “reported value”
+- “met the local goal”
+- “eligible denominator”
+- “direct Division record”
+- “like-for-like cohort”
+- “status unavailable”
+- “descriptive relationship”
+- “reporting selection”
+- “available records”
+
+AVOID UNLESS PROVEN:
+
+- “performance improved”
+- “this metric drives that metric”
+- “statistically significant”
+- “complete coverage”
+- “all facilities” when the type is not Facility
+- “trend” based only on Current and YTD
+- “underperforming” when no comparable goal exists
+
+
+======================================================================
+17. PRE-PRESENTATION CHECKLIST
+======================================================================
+
+1. Place the newest workbook in its timestamped output folder.
+
+2. Run:
+
+   cd /Users/prajwalbang/Downloads/vision2030_contemporary_site/vision2030_contemporary_site
+   python3 run_vision2030.py
+
+3. Confirm the terminal prints:
+
+   "auditPass": true
+   "All pages built from one normalized, audited data model."
+
+4. Confirm the browser batch matches the intended output folder.
+
+5. Open all three pages once before the meeting.
+
+6. Test one Division selection on Briefing.
+
+7. Test one metric/hierarchy change on Insights.
+
+8. Test one filter and table sort on Data Explorer.
+
+9. Avoid quoting memorized statistics. Read values and denominators from the current page.
+
+10. Keep these backup paths available:
+
+    Briefing:
+    http://127.0.0.1:8000/briefing.html
+
+    Insights:
+    http://127.0.0.1:8000/insights.html
+
+    Data Explorer:
+    http://127.0.0.1:8000/data_explorer.html
+
+11. Keep the terminal open. Press Control+C only after the presentation to stop localhost.
+
+
+======================================================================
+18. SUGGESTED CLOSING
+======================================================================
+
+“The redesign is intentionally conservative. It prioritizes decisions we can defend over conclusions that merely look polished.”
+
+“The executive page identifies attention and freshness. The Insights page supports like-for-like investigation. The Data Explorer preserves complete traceability.”
+
+“As the source workbook gains better local targets, reporting dates, weights, or governed geographic fields, the website can add richer analysis without changing its core integrity.”
+
+“The value of this system is not just that it looks better. It makes the limits of the data visible, keeps the analysis reproducible, and gives leaders a clearer path from a headline to its supporting records.”
