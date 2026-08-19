@@ -1,10 +1,21 @@
 {
   "schemaVersion": 2,
-  "sourceWorkbook": "output\\2026-08-17_153550\\vision2030_business_table_2026-08-17_153550.xlsx",
+  "sourceWorkbook": "output\\2026-08-19_100706\\vision2030_business_table_2026-08-19_100706.xlsx",
+  "sourceWorkbookSha256": "b2a3f9ddca01c7d8ddb8d61e44dd69435528a5de26e5068e04a38ec263a02bbf",
+  "mappingAudit": "output\\2026-08-19_100706\\division_mapping_audit_2026-08-19_100706.csv",
   "summaryRows": 21,
   "detailRows": 6824,
   "uniqueScopes": 5275,
   "duplicateRows": 0,
   "generatedMetrics": 21,
-  "auditPass": true
+  "mappingAuditRows": 13640,
+  "mappingAuditAttached": 658,
+  "mappingComplete": false,
+  "sourceDivisionMismatches": [],
+  "matchedDivisionDiffersFromSourceRows": 657,
+  "clinicalAggregateMismatches": [],
+  "knownUnclassifiedFacilities": [
+    "UCM AH GlenOaks HOSP"
+  ],
+  "auditPass": false
 }

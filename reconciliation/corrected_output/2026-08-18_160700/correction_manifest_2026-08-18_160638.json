@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-18T16:06:39",
+  "realSource": "/Users/prajwalbang/Downloads/vision2030_contemporary_site_upgrade/vision2030_business_table_2026-08-18_130253.xlsx",
+  "realSourceSha256": "dc1763749f0af6dde6518a2b119a34e6c88d2cc0d9b1da424ed9028d04559754",
+  "roughMappingSource": "/Users/prajwalbang/Downloads/vision2030_contemporary_site_upgrade/output/2026-08-17_153550/vision2030_business_table_2026-08-17_153550.xlsx",
+  "roughMappingSourceSha256": "8861cf2664a6d2d180d179e284d55f6bfdd72b6ffc3ec84e6de91d339c403702",
+  "outputWorkbook": "reconciliation/corrected_output/2026-08-18_160700/vision2030_business_table_2026-08-18_160638.xlsx",
+  "outputWorkbookSha256": "1ded58eda6dceea017fb3013977a59e44c2e75b2a6ae9243049ecb6316fbd696",
+  "detailRows": 6824,
+  "nonDivisionFieldsChanged": 0,
+  "primaryHealthRowsRestored": 100,
+  "corporateServicesRowsRestored": 27,
+  "locationAliasesApplied": 1,
+  "clinicalValueOverridesCopied": 0,
+  "mappingAudit": "reconciliation/corrected_output/2026-08-18_160700/division_mapping_audit_2026-08-18_160638.csv"
+}

@@ -1,0 +1,65 @@
+VISION 2030 SOURCE-FIRST WEBSITE — IMPLEMENTED RESULT
+
+LIVE WEBSITE SOURCE
+
+vision2030_business_table_2026-08-18_130253.xlsx
+
+SHA-256:
+dc1763749f0af6dde6518a2b119a34e6c88d2cc0d9b1da424ed9028d04559754
+
+The website reads this August 18 extraction directly. The source workbook is not edited, copied into a deployment workbook, or supplied with replacement Division cells.
+
+SEPARATE MATCHING AUDIT
+
+reconciliation/source_mapping/2026-08-18_130253/
+
+- Detail rows: 6,824
+- Mapping audit rows attached: 6,824 of 6,824
+- Source Division mismatches: 0
+- Duplicate website records: 0
+- Clinical aggregate mismatches: 0
+- Known GlenOaks rows left unclassified: 0
+- Website validation: auditPass = true
+
+SOURCE-FIRST FIELD MODEL
+
+1. Source Division is copied verbatim from the August 18 workbook.
+2. Matched Division is a separate derived grouping for cross-workbook filters.
+3. Report Geography is optional secondary context and never replaces organizational ownership.
+4. Mapping Status, Confidence, and Evidence explain every derived match.
+5. Data Explorer and CSV exports carry Source Division and Matched Division side by side.
+6. Visible matched labels use full names such as Central Florida Division; abbreviations remain matching evidence only.
+
+MAPPING PRECEDENCE
+
+1. An explicit Primary Health organizational parent wins over geographic words lower in the hierarchy.
+2. Corporate ownership wins over geographic location-name evidence.
+3. Florida facility or region evidence is used only when the source parent is broad or unresolved.
+4. Multistate facility or region evidence is used only when the source parent is broad or unresolved.
+5. Exact normalized matches and approved aliases are used; unrestricted substring matching is not used.
+
+CLINICAL VALUE CHECK
+
+The live source contains:
+
+- CMS Star Rating corporate aggregate: 0.65, displayed as 65.0% of 4–5 Star facilities.
+- Leapfrog Safety Grade corporate aggregate: 0.667, displayed as 66.7% of Grade A campuses.
+
+The rough August 17 values 63.4% and 65.2% are unexplained and are not used by the live site.
+
+ARTIFACT PURPOSES
+
+- build_source_mapping_audit.py: produces the sidecar audit while checking that the source workbook hash remains unchanged.
+- source_mapping/.../division_mapping_audit_*.csv: authoritative one-row-per-detail-record matching provenance.
+- source_mapping/.../source_mapping_manifest_*.json: source hash, evidence hash, audit counts, and sourceWorkbookModified=false.
+- build_corrected_workbook.py and corrected_output/: historical comparison artifacts; not normal website inputs.
+- vision2030_real_run_reconciliation_2026-08-18.csv: earlier forensic comparison only; not the deployment source.
+- test_mapping_regressions.py: protects source preservation, matching precedence, full-name labels, alias handling, and clinical aggregate display.
+
+DEFAULT BUILD
+
+From the project root:
+
+python3 vision2030_contemporary_site/run_vision2030.py --build-only
+
+The launcher selects the newest source workbook from the project root or output/, attaches the matching audit for the same source timestamp, and stops before publishing unless the complete audit passes.

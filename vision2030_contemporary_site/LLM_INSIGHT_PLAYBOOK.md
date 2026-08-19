@@ -9,22 +9,25 @@ The objective is not to produce more commentary. The objective is to produce a s
 Work from the project root:
 
 ```bash
-cd /Users/prajwalbang/Downloads/vision2030_contemporary_site/vision2030_contemporary_site
-python3 run_vision2030.py --build-only
+cd /Users/prajwalbang/Downloads/vision2030_contemporary_site_upgrade
+python3 vision2030_contemporary_site/run_vision2030.py --build-only
 ```
 
-The launcher searches the configured `output` root for files matching:
+By default, the launcher searches the project root and `output/` for source files matching:
 
 ```text
 */vision2030_business_table_*.xlsx
 ```
 
-It ignores Excel lock files beginning with `~$` and selects the workbook in the latest timestamped output directory. Do not hardcode a previously observed timestamp.
+It ignores Excel lock files beginning with `~$` and selects the source workbook with the latest timestamp in its filename. Corrected workbooks under `reconciliation/corrected_output/` are historical audit artifacts and are not normal website inputs. Do not hardcode a previously observed timestamp.
 
 To use a specific workbook intentionally:
 
 ```bash
-python3 run_vision2030.py --workbook /absolute/path/to/workbook.xlsx --build-only
+python3 vision2030_contemporary_site/run_vision2030.py \
+  --workbook /absolute/path/to/workbook.xlsx \
+  --mapping-audit /absolute/path/to/division_mapping_audit.csv \
+  --build-only
 ```
 
 Do not generate or publish insights if the build raises an error or if `generated/validation_summary.json` does not contain:
@@ -37,11 +40,12 @@ Do not generate or publish insights if the build raises an error or if `generate
 
 Use sources in this order:
 
-1. The latest selected `vision2030_business_table_*.xlsx` workbook is the original source.
+1. The latest selected `vision2030_business_table_*.xlsx` workbook is the immutable analytical source. Its `Division` cells are never rewritten by the website build.
 2. `generated/normalized_record_audit.csv` is the preferred row-level source for analysis and narrative generation.
 3. `generated/validation_summary.json` proves which workbook was used and whether normalization passed.
-4. `site_builder.py` defines aliases, units, goal parsing, hierarchy normalization, and conservative derived-status rules.
-5. `assets/vision2030.js` defines the current filter cohorts and visualization calculations.
+4. `reconciliation/source_mapping/<source timestamp>/division_mapping_audit_*.csv` is the separate matching provenance source. It must contain exactly one attached audit row per detail record and its `Original Division` must exactly match the source workbook.
+5. `site_builder.py` defines aliases, units, goal parsing, hierarchy normalization, and conservative derived-status rules.
+6. `assets/vision2030.js` defines the current filter cohorts and visualization calculations.
 
 Never use a number from an old screenshot, previous chat response, README example, or prior output directory when a newer audited run exists.
 
@@ -51,7 +55,11 @@ Never cite a value without preserving its analytical context:
 
 - Business Area
 - Metric
-- Division
+- Source Division (unchanged workbook value)
+- Matched Division (derived grouping)
+- Report Geography
+- Mapping Status
+- Mapping Confidence
 - Location Type
 - Location
 - Value
@@ -79,6 +87,11 @@ Bad:
 
 Required rules:
 
+- `Source Division` is the unchanged workbook value. Never rewrite or silently relabel it.
+- `Matched Division` is a derived cross-workbook grouping. It may be used by a labeled matched-division filter but must not be presented as a source field.
+- `Report Geography` is optional secondary context, not a replacement hierarchy.
+- Direct PHD and Corporate parent assignments take precedence over geographic location-name matches.
+- Use `Source Division`, `Matched Division`, `Mapping Status`, and `Mapping Evidence` when auditing a match.
 - Compare records only within one Location Type.
 - Never average or count Corporate, Division, Region, and local records together as if they were independent observations.
 - Never relabel Cost Center as Facility, Campus as Hospital, or FRL as Facility.
@@ -226,6 +239,7 @@ The current workbook does not provide validated latitude/longitude, state/county
 ### Data Explorer
 
 - Preserve all source-aligned rows and filters.
+- Preserve the Division Basis control. `Source division` must use the workbook value verbatim; `Matched division` must use only the attached sidecar audit.
 - `All types` is allowed for auditing and export.
 - Suppress combined attainment when multiple metrics or hierarchy levels would make it misleading.
 - Record-composition charts describe available rows, not expected coverage or organizational size.
@@ -251,7 +265,7 @@ Avoid unless proven:
 - “coverage” without a known expected denominator
 - “facility” as a generic term for every location
 - “underperforming” when no defensible goal exists
-- “latest” without resolving the latest output directory at runtime
+- “latest” without resolving the latest source workbook at runtime
 
 ## 12. Pre-publication checklist
 
@@ -259,6 +273,9 @@ Before saving an insight or chart:
 
 - [ ] Latest workbook was resolved at runtime.
 - [ ] Validation audit passed.
+- [ ] Mapping audit contains and attaches exactly one row for every detail record.
+- [ ] Source Division is unchanged and Matched Division is clearly labeled as derived.
+- [ ] Matched Division is not replaced by Report Geography in calculations or labels.
 - [ ] Metric name and unit match the normalized model.
 - [ ] Exactly one analytical Location Type is used.
 - [ ] Division and date filters are applied consistently.
@@ -276,6 +293,9 @@ Before saving an insight or chart:
 ## 13. Implementation locations
 
 - Workbook parsing and normalization: `site_builder.py`
+- Immutable source-side matching audit: `reconciliation/build_source_mapping_audit.py`
+- Historical corrected-workbook comparison only: `reconciliation/build_corrected_workbook.py`
+- Division normalization used by future extractions: `vision2030_extraction.py`
 - Launcher and localhost server: `run_vision2030.py`
 - Dynamic charts, filters, and page insights: `assets/vision2030.js`
 - Shared visual language: `assets/vision2030.css`

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-18T16:48:07",
+  "sourceWorkbook": "vision2030_business_table_2026-08-18_130253.xlsx",
+  "sourceWorkbookSha256": "dc1763749f0af6dde6518a2b119a34e6c88d2cc0d9b1da424ed9028d04559754",
+  "sourceWorkbookModified": false,
+  "roughMappingEvidence": "output/2026-08-17_153550/vision2030_business_table_2026-08-17_153550.xlsx",
+  "roughMappingEvidenceSha256": "8861cf2664a6d2d180d179e284d55f6bfdd72b6ffc3ec84e6de91d339c403702",
+  "detailRows": 6824,
+  "matchedDivisionDiffersFromSourceRows": 6762,
+  "mappingStatusCounts": {
+    "UNRESOLVED_PRESERVED": 15,
+    "ORGANIZATIONAL_PARENT_CORPORATE_SERVICES": 324,
+    "ORIGINAL_DIVISION_PRESERVED": 344,
+    "ORGANIZATIONAL_PARENT_PHD": 570,
+    "CONFIRMED_DIRECT_DIVISION": 135,
+    "CONFIRMED_REGION_TO_DIVISION": 2260,
+    "CONFIRMED_FACILITY_TO_DIVISION": 3161,
+    "CONFIRMED_CONSOLIDATED_MULTISTATE": 9,
+    "SOURCE_PRESERVED": 4,
+    "CONFIRMED_LOCATION_ALIAS": 1,
+    "UNSUPPORTED_CORPORATE_SERVICES_PRESERVED": 1
+  },
+  "mappingAudit": "reconciliation/source_mapping/2026-08-18_130253/division_mapping_audit_2026-08-18_130253.csv"
+}

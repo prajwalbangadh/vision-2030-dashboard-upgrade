@@ -1,0 +1,527 @@
+VISION 2030 — PAGE-BY-PAGE PRESENTATION SCRIPT
+SOURCE RUN: AUGUST 18, 2026
+
+
+BEFORE PRESENTING
+
+Open:
+
+Briefing
+http://127.0.0.1:8000/briefing.html
+
+Insights
+http://127.0.0.1:8000/insights.html
+
+Data Explorer
+http://127.0.0.1:8000/data_explorer.html
+
+The live source is:
+vision2030_business_table_2026-08-18_130253.xlsx
+
+The source contains 21 executive-summary records and 6,824 detail records.
+
+What has been verified:
+
+- All 6,824 workbook detail rows are present in the website model.
+- All 21 executive-summary rows are present.
+- Metric, Source Division, Location Type, Location, Value, Goal, Variance, YTD, and Data As Of match the workbook row-for-row with zero mismatches.
+- All three HTML pages contain the same normalized data model.
+- The separate mapping audit attaches to all 6,824 detail rows with zero Source Division mismatches.
+- There are zero duplicate website records, zero clinical aggregate mismatches, and no known GlenOaks record left unclassified.
+- The build reports auditPass = true.
+
+Important wording:
+
+“We have verified that the website faithfully represents the August 18 workbook. That is a source-to-website validation. It does not independently re-query the upstream API that originally produced the workbook.”
+
+
+OPENING — ABOUT 45 SECONDS
+
+“This is a decision-support experience built directly from the August 18 Vision 2030 workbook.”
+
+“The design separates three questions. The Executive Briefing answers what deserves leadership attention. Insights examines one comparable peer cohort at a time. Data Explorer provides the exact supporting records and audit trail.”
+
+“The governing principle is that the website does not invent data or force comparisons. Every percentage has an eligible denominator, every record retains its reporting date, and unavailable status remains visible instead of being treated as success or failure.”
+
+“The source Division value is also preserved exactly. When consolidated filtering is useful, Matched Division is carried separately and is clearly labelled as derived.”
+
+
+PAGE ONE — EXECUTIVE BRIEFING
+
+
+1. POINT TO THE SOURCE WORKBOOK CHIP
+
+Say:
+
+“The chip in the top-right identifies the exact source batch. This page is currently powered by the August 18, 2026 extraction, with 6,824 detail rows and 5,310 distinct source-defined scopes.”
+
+“This prevents an old screenshot or previous workbook from being mistaken for the current run.”
+
+
+2. EXPLAIN THE SYSTEM AND DIVISION CONTROL
+
+Say:
+
+“The System view uses the enterprise records from the Vision 2030 summary sheet.”
+
+“The Division view uses only records explicitly reported at Location Type equals Division. It does not average Facilities, Regions, FRLs, or Cost Centers to manufacture a Division result.”
+
+“The Division selector is labelled Matched Division because the workbook’s Source Division remains unchanged and the consolidated grouping is stored separately.”
+
+
+3. WALK THROUGH THE FOUR SYSTEM KPIs
+
+Read the current values:
+
+“The executive scorecard contains 19 non-WPC metric records.”
+
+“Eight of 14 eligible metrics meet their local goals, which produces a 57 percent attainment rate.”
+
+“Six metrics miss their local goals.”
+
+“Five metrics have status unavailable. That does not necessarily mean the value is missing; it means the value-to-goal comparison cannot be defended.”
+
+“Seventeen of the 19 records contain a reported value. The two remaining records are the Coming Soon clinical measures.”
+
+Formula if asked:
+
+Attainment = 8 met / (8 met + 6 missed) = 8 / 14 = 57 percent after rounding.
+
+Unavailable records are shown separately and are not placed in the denominator.
+
+
+4. POINT TO THE MIXED-DATE NOTICE
+
+Say:
+
+“This is a mixed-date snapshot. The source reporting labels range from 2024 through July 2026.”
+
+“Each metric keeps its own date. We do not apply one global reporting month, and we do not describe this as a trend.”
+
+
+5. WALK THROUGH THE EXECUTIVE READOUT
+
+ATTENTION
+
+Say:
+
+“The Attention item is selected deterministically as the largest defensible negative goal gap.”
+
+“For this run, Patient Experience – Inpatient LTR reports 63 against a local goal of at least 75 as of June 2026. The normalized gap is negative 16 percent.”
+
+PROTECT
+
+Say:
+
+“The Protect item is the largest positive margin against a defensible local target.”
+
+“For this run, EBITDA reports 534.7 million dollars against a goal of at least 279.5 million dollars as of June 2026. The workbook-reported local-target variance is positive 91.3 percent.”
+
+DATA CONFIDENCE
+
+Say:
+
+“The Data Confidence card shows five status-unavailable records out of 19 and two records without a reporting date.”
+
+“This keeps comparability and freshness limitations at the same level as the performance signals.”
+
+
+6. DIRECT DIVISION STATUS COMPOSITION
+
+Say:
+
+“Each stacked bar uses only direct Division records.”
+
+“Green is met, red is missed, and gray is status unavailable. The percentage at right uses only met plus missed as the eligible denominator, while the stack still shows all records.”
+
+“The chart is not weighted by workforce, patient volume, revenue, or facility count. It is a composition of available direct metric records.”
+
+Current direct-Division examples:
+
+- Central Florida Division: 5 met, 4 missed, 0 unavailable; 5 of 9 eligible = 56 percent.
+- East Florida Division: 5 met, 4 missed, 0 unavailable; 5 of 9 eligible = 56 percent.
+- West Florida Division: 4 met, 5 missed, 0 unavailable; 4 of 9 eligible = 44 percent.
+- Primary Health Division: 3 met, 4 missed, 2 unavailable; 3 of 7 eligible = 43 percent.
+- Multi-State Division: 3 met, 6 missed, 0 unavailable; 3 of 9 eligible = 33 percent.
+
+
+7. METRICS BY REPORTING DATE
+
+Say:
+
+“These bars count how many executive metric records share each Data As Of label.”
+
+“They are a freshness inventory, not a time series. A longer bar means more metrics use that reporting label; it does not mean performance increased.”
+
+
+8. PERFORMANCE BY STRATEGIC ASPIRATION
+
+Say:
+
+“These cards organize the same executive records by the Vision 2030 aspirations.”
+
+“The large percentage is met divided by met plus missed within that aspiration. The stacked strip still shows unavailable records.”
+
+Current aspiration results:
+
+- Dynamic Learning Community: 2 of 2 eligible met = 100 percent; 1 additional record is unavailable.
+- Team Member Promise: 3 of 4 eligible met = 75 percent.
+- Consumer Focused Connected Network: 0 of 4 eligible met = 0 percent.
+- Clinical Excellence: 0 eligible comparisons; all 4 records are unavailable.
+- Financial Strength and Growth: 3 of 3 eligible met = 100 percent.
+- Managed Population Risk: 0 of 1 eligible met = 0 percent.
+
+Say:
+
+“Clinical does not display zero-percent performance. It displays no eligible result because the available enterprise clinical records do not supply comparable aggregate goal logic.”
+
+
+9. PRIORITY GAPS AND STRENGTHS TO PROTECT
+
+Say:
+
+“These are ranked only when a numeric local goal and direction are known.”
+
+“The rankings use normalized percentage gaps, not raw values, so a dollar metric is not compared directly with a survey score.”
+
+“Every row retains its reported value, local goal, and reporting date.”
+
+
+10. GROUPED SCORECARD
+
+Say:
+
+“This section retains the useful strategic grouping from the earlier site, but removes fixed blank panels and the assumption that every record shares one month.”
+
+“Each card preserves the reported value, its own local goal, date, status, and status basis.”
+
+“If a Division lacks a direct record for a metric, the page shows that absence rather than rolling up lower-level records.”
+
+
+11. DIRECT DIVISION HEATMAP
+
+Say:
+
+“Rows are metrics and columns are matched Divisions with direct Division records.”
+
+“Green means met, red means missed, gray means status unavailable, and a blank means no direct record.”
+
+“Hovering shows the exact location, value, local goal, and reporting date.”
+
+“This is useful for pattern recognition, but it does not average the metrics or imply that every Division has the same available metric set.”
+
+
+OPTIONAL LIVE ACTION ON BRIEFING
+
+Select Central Florida Division.
+
+Say:
+
+“Central Florida has nine direct Division records in this run. Five meet and four miss their local goals, producing 56 percent attainment.”
+
+“The page is using those nine direct records only. It is not calculating a Division result from the many lower-level rows.”
+
+
+TRANSITION TO INSIGHTS
+
+“The Briefing page answers where leadership attention may be useful. The Insights page changes the question: what is happening inside one genuinely comparable peer cohort?”
+
+
+PAGE TWO — INSIGHTS
+
+
+1. EXPLAIN THE FILTER ORDER
+
+Say:
+
+“Insights is metric-first. I choose a Business Area, one Metric, one Compare As hierarchy, an optional Matched Division, and a reporting selection.”
+
+“The available hierarchy options change with the metric because a Facility, Hospital, Campus, FRL, Region, and Cost Center are not interchangeable analytical units.”
+
+
+2. USE TEAM MEMBER ENGAGEMENT AT FRL LEVEL
+
+Set or confirm:
+
+Business Area: Team
+Metric: Team Member Engagement
+Compare As: FRL
+Matched Division: All
+Data As Of: Mar 2026
+
+Say:
+
+“This cohort contains 203 FRL records, and all 203 carry numeric values.”
+
+“One hundred twenty-five of 203 eligible FRL records meet their local goal, producing 62 percent attainment.”
+
+“Seventy-eight miss their local goal, and none are status unavailable in this cohort.”
+
+“The peer median is 82. The observed values range from 67 to 97.”
+
+
+3. HIGHEST REPORTED VALUES
+
+Say:
+
+“The ranking shows the highest raw reported values within this FRL cohort.”
+
+“The bar color shows local-goal status, but highest is not automatically best for every metric. Direction must always be interpreted using the goal logic.”
+
+
+4. GOAL-STATUS DONUT
+
+Say:
+
+“The full circle contains all 203 records.”
+
+“The center rate is 125 divided by 203 eligible records, or 62 percent.”
+
+“When unavailable records exist, they remain visible as gray but do not enter the center-rate denominator.”
+
+
+5. VALUE-DISTRIBUTION HISTOGRAM
+
+Say:
+
+“The histogram shows the frequency and spread of the peer values. It is displayed only when at least five numeric records exist.”
+
+“The page also states the observed range and the middle 50 percent, so the median is not presented without distribution context.”
+
+
+6. LARGEST LOCAL-GOAL GAPS
+
+Say:
+
+“This chart includes only missed records with a comparable numeric local goal.”
+
+“Bar length represents the normalized percentage gap to that record’s own goal.”
+
+“This is an investigation queue, not a causal explanation.”
+
+
+7. GOAL ATTAINMENT BY DIVISION
+
+Say:
+
+“This comparison stays within Team Member Engagement at FRL level.”
+
+“For each matched Division, the rate is met divided by met plus missed, and the page displays N beside the rate.”
+
+“Different denominators remain visible, and unavailable rows are reported separately.”
+
+
+8. CURRENT VERSUS YTD, WHEN PRESENT
+
+Say:
+
+“This section appears only when both Current and YTD fields exist.”
+
+“It shows Current minus YTD for the records with the largest absolute differences.”
+
+“This is not a trend line. Two workbook fields do not establish a time series.”
+
+
+9. MATCHED-SCOPE RELATIONSHIP
+
+Select or confirm:
+
+Compare with: Leader Effectiveness (Facility Leadership)
+
+Say:
+
+“The two metrics are paired only when they exist for the exact same FRL scope under the same Division and date selection.”
+
+“In this run there are 203 matched pairs. The Pearson relationship is r equals 0.71 after rounding.”
+
+“That is a strong positive descriptive relationship, but it does not show that one metric causes the other. It identifies a question for investigation.”
+
+
+10. DEMONSTRATE HIERARCHY-AWARE OPTIONS
+
+Optional examples:
+
+- Physician Engagement defaults to Hospital.
+- CMS Overall Hospital Star Rating uses Facility.
+- Leapfrog Hospital Safety Grade uses Campus.
+- Digital Tool Utilization defaults to Market for peer analysis.
+
+Say:
+
+“The page changes hierarchy because the underlying data changes hierarchy. It does not call every record a facility.”
+
+
+IMPORTANT DIGITAL TOOL UTILIZATION LIMIT ON INSIGHTS
+
+Say:
+
+“Insights intentionally excludes the Corporate AdventHealth record because this page is designed for non-Corporate peer comparison.”
+
+“The AdventHealth-level Digital Tool Utilization value is available on Briefing and Data Explorer, which are the appropriate enterprise views.”
+
+
+TRANSITION TO DATA EXPLORER
+
+“Insights summarizes one comparable cohort. Data Explorer is where I can inspect the exact workbook-aligned records behind those summaries.”
+
+
+PAGE THREE — DATA EXPLORER
+
+
+1. EXPLAIN THE BUSINESS-AREA TABS
+
+Say:
+
+“The tabs preserve the workbook structure: Vision 2030, Learning, Team, Consumer, Clinical, Financial, Risk, and WPC.”
+
+“Vision 2030 contains the 21 enterprise-summary records. The other tabs contain their corresponding detail sheets.”
+
+“WPC currently has two Coming Soon enterprise summary records but zero detail rows, so an empty WPC detail view is faithful to the workbook rather than a website error.”
+
+
+2. SCORECARD VERSUS WORKBOOK TABLE
+
+Say:
+
+“Scorecard is the business-friendly orientation view.”
+
+“Workbook Table is the source-aligned investigation view, where values, local goals, source variance, derived status, YTD, dates, and mapping provenance remain separate.”
+
+
+3. EXPLAIN DIVISION BASIS
+
+Say:
+
+“Division Basis can switch between Source Division and Matched Division.”
+
+“Source Division is copied verbatim from the August 18 workbook.”
+
+“Matched Division is an optional derived grouping supported by the separate audit. It does not overwrite the source value.”
+
+
+4. EXPLAIN THE QUALITY STRIP
+
+Say:
+
+“Filtered Rows is the exact number of current records.”
+
+“Unique Scopes counts distinct organizational scopes rather than metric rows.”
+
+“Eligible Meeting Goal appears only when the selected records form a defensible cohort.”
+
+“Reporting Range shows the date span in the current result.”
+
+
+5. EXPLAIN THE ADAPTIVE COMPOSITION BARS
+
+Say:
+
+“The bar grouping changes with context.”
+
+“On the Vision 2030 tab it counts executive metrics by Business Area.”
+
+“With mixed hierarchy it counts records by Location Type.”
+
+“With one hierarchy it can count by Source or Matched Division.”
+
+“With one Division it can show the goal-status record mix.”
+
+“These are record counts. They are not workforce, patient volume, revenue, or completeness.”
+
+
+6. DEMONSTRATE ADVENTHEALTH-LEVEL DIGITAL TOOL UTILIZATION
+
+Use either route below.
+
+ROUTE A — ENTERPRISE SUMMARY
+
+1. Select the Vision 2030 tab.
+2. Select Metric = Digital Tool Utilization.
+3. Select Compare As = Corporate if needed.
+4. Switch to Workbook Table.
+
+ROUTE B — CONSUMER DETAIL SHEET
+
+1. Select the Consumer tab.
+2. Select Metric = Digital Tool Utilization.
+3. Select Compare As = Corporate.
+4. Switch to Workbook Table.
+
+Read the verified record:
+
+“At AdventHealth Corporate level, Digital Tool Utilization reports 3.2 million against a goal of at least 3.6 million as of June 2026.”
+
+“The source metric name is Annual Active Users. The website presents the governed display alias Digital Tool Utilization.”
+
+“The derived goal status is missed. The displayed value-to-goal gap is negative 11.1 percent.”
+
+“On the enterprise summary record, the workbook’s separate Source Variance field is negative 9.9 percent. The page keeps that source field separate from the derived goal comparison.”
+
+Answer if asked whether this filtering exists:
+
+“Yes. AdventHealth-level filtering is available in Data Explorer by selecting Digital Tool Utilization and Corporate. The same enterprise value is visible in the System-level Executive Briefing. Insights does not expose Corporate because it is intentionally a non-Corporate peer-comparison page.”
+
+
+7. WALK THROUGH THE WORKBOOK TABLE COLUMNS
+
+Say:
+
+“Matched Division is labelled as derived.”
+
+“Source Division is the unchanged workbook value.”
+
+“Report Geography, Mapping Status, Confidence, and Evidence make matching decisions traceable.”
+
+“Derived Goal Status and Status Basis explain the website comparison.”
+
+“Source Variance and Source Color remain separate because they are workbook fields.”
+
+“YTD and Data As Of remain attached to the individual record.”
+
+
+8. CSV EXPORT
+
+Say:
+
+“Export uses the exact current filter set.”
+
+“The browser table displays at most 500 rows for responsiveness, but the CSV export contains every filtered record.”
+
+
+DATA-ACCURACY QUESTION — SHORT ANSWER
+
+If asked, “How do we know the data is correct?” say:
+
+“For this build, we verified the August 18 workbook against the website row-by-row. All 21 executive rows and all 6,824 detail rows are present. Nine source fields match with zero mismatches, all 6,824 mapping-audit rows attach, and all three pages embed the identical model.”
+
+“That proves faithful ingestion and display of the workbook. Validation of the upstream API or business definition before the workbook was created would be a separate source-system audit.”
+
+
+WHY THERE IS NO MAP
+
+If asked, say:
+
+“The workbook does not contain governed latitude and longitude, FIPS codes, or an approved facility-to-geography reference table.”
+
+“A map based only on location names could look precise while placing records incorrectly, so we deliberately did not add one.”
+
+
+CLOSING — ABOUT 30 SECONDS
+
+“The redesign is intentionally conservative. It prioritizes decisions we can defend over conclusions that merely look polished.”
+
+“The Briefing identifies attention, strength, and freshness. Insights supports like-for-like investigation. Data Explorer preserves complete traceability to the source workbook.”
+
+“The important outcome is not simply that the site looks cleaner. It makes denominators, hierarchy, dates, source values, derived logic, and data limitations visible enough to defend in a leadership conversation.”
+
+
+FINAL REMINDERS
+
+- Say “reported value,” not “performance improved,” unless comparable time history exists.
+- Say “met the local goal,” not “good,” unless additional business context supports that judgment.
+- State the numerator and eligible denominator with every attainment percentage.
+- Do not call Current versus YTD a trend.
+- Do not call a correlation a driver or cause.
+- Do not call all lower-level records facilities.
+- If a result is gray, say “status unavailable,” not automatically “not reported.”
+- Read values from the live page if a newer workbook is processed before the presentation.

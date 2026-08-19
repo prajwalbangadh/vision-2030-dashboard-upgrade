@@ -1,0 +1,47 @@
+VISION 2030 RECONCILIATION — FILE MANIFEST
+Created 2026-08-18
+
+SOURCE / CONFIGURATION FILES MODIFIED
+
+AGENTS.md
+vision2030_extraction.py
+vision2030_contemporary_site/site_builder.py
+vision2030_contemporary_site/assets/vision2030.js
+vision2030_contemporary_site/LLM_INSIGHT_PLAYBOOK.md
+vision2030_contemporary_site/PRESENTATION_GUIDE.txt
+
+RECONCILIATION FILES ADDED OR UPDATED
+
+reconciliation/build_corrected_workbook.py
+reconciliation/build_source_mapping_audit.py
+reconciliation/test_mapping_regressions.py
+reconciliation/VISION2030_RECONCILIATION_SUMMARY.txt
+reconciliation/vision2030_real_run_reconciliation_2026-08-18.csv
+reconciliation/IMPLEMENTATION_FILE_MANIFEST.txt
+
+LIVE SOURCE-MAPPING SIDECAR GENERATED
+
+reconciliation/source_mapping/2026-08-18_130253/division_mapping_audit_2026-08-18_130253.csv
+reconciliation/source_mapping/2026-08-18_130253/source_mapping_manifest_2026-08-18_130253.json
+
+HISTORICAL CORRECTED BATCH RETAINED BUT NO LONGER USED BY THE WEBSITE
+
+reconciliation/corrected_output/2026-08-18_160700/vision2030_business_table_2026-08-18_160638.xlsx
+reconciliation/corrected_output/2026-08-18_160700/division_mapping_audit_2026-08-18_160638.csv
+reconciliation/corrected_output/2026-08-18_160700/correction_manifest_2026-08-18_160638.json
+
+WEBSITE OUTPUTS REGENERATED
+
+vision2030_contemporary_site/briefing.html
+vision2030_contemporary_site/insights.html
+vision2030_contemporary_site/data_explorer.html
+vision2030_contemporary_site/generated/normalized_record_audit.csv
+vision2030_contemporary_site/generated/validation_summary.json
+
+SOURCE WORKBOOKS VERIFIED UNCHANGED
+
+vision2030_business_table_2026-08-18_130253.xlsx
+output/2026-08-17_153550/vision2030_business_table_2026-08-17_153550.xlsx
+
+The live website source is vision2030_business_table_2026-08-18_130253.xlsx.
+See source_mapping_manifest_2026-08-18_130253.json for the source SHA-256 and sourceWorkbookModified=false.

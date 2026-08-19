@@ -1,6 +1,7 @@
 import csv
 import importlib
 import json
+import re
 import subprocess
 import sys
 from datetime import datetime
@@ -653,6 +654,24 @@ UNSUPPORTED_CORPORATE_SERVICES_NAMES = {
     "corporate services division cost centers by reporting hierarchy",
 }
 
+FLORIDA_PARENT_NAMES = {
+    "florida division cost centers by reporting hierarchy",
+}
+
+MULTISTATE_PARENT_NAMES = {
+    "multistate division cost centers by reporting hierarchy",
+    "multi-state division cost centers by reporting hierarchy",
+    "multi state division cost centers by reporting hierarchy",
+}
+
+# Explicit aliases are used only when the source has no usable division.
+# They prevent harmless spacing differences from leaving known facilities
+# unclassified without enabling unrestricted fuzzy matching.
+LOCATION_EVIDENCE_ALIASES = {
+    "ucm ah glenoaks hosp": "UCM AH Glen Oaks",
+    "ucm ah glenoaks": "UCM AH Glen Oaks",
+}
+
 DIVISION_MAPPING_AUDIT = []
 
 
@@ -679,8 +698,8 @@ def _find_name_in_evidence(evidence_values, names):
     """
     Find a confirmed name in individual hierarchy evidence values.
 
-    Exact matches are checked first. Containment is used only for longer
-    hierarchy-path values so confirmed names can be found inside a path.
+    Exact matches are checked first. Boundary-aware containment then finds
+    confirmed names inside coded locations and hierarchy paths.
     """
     cleaned_values = [
         clean_text(value)
@@ -702,49 +721,31 @@ def _find_name_in_evidence(evidence_values, names):
     for value in cleaned_values:
         normalized_value = _normalized_text(value)
 
+        alias = LOCATION_EVIDENCE_ALIASES.get(normalized_value)
+        if alias:
+            alias_match = _exact_name_match(alias, names)
+            if alias_match:
+                return alias_match
+
         for name in names_by_length:
             normalized_name = _normalized_text(name)
 
-            if normalized_name and normalized_name in normalized_value:
+            if (
+                normalized_name
+                and re.search(
+                    rf"(?<![a-z0-9]){re.escape(normalized_name)}"
+                    r"(?![a-z0-9])",
+                    normalized_value,
+                )
+            ):
                 return name
 
     return ""
 
 
-def _append_division_audit(
-    node,
-    original_division,
-    final_division,
-    mapping_status,
-    matched_evidence,
-):
-    """Add one normalization decision to the division audit."""
-    DIVISION_MAPPING_AUDIT.append(
-        {
-            "Metric": clean_text(node.get("Metric")) or "N/A",
-            "Level": node.get("Level", "N/A"),
-            "Location Type": (
-                clean_text(node.get("Location Type")) or "N/A"
-            ),
-            "Location": (
-                clean_text(node.get("Current Location"))
-                or clean_text(node.get("Location"))
-                or "N/A"
-            ),
-            "Original Division": original_division,
-            "Final Division": final_division,
-            "Mapping Status": mapping_status,
-            "Matched Evidence": matched_evidence or "N/A",
-            "Hierarchy Path": (
-                clean_text(node.get("Hierarchy Path")) or "N/A"
-            ),
-        }
-    )
-
-
 def normalize_division_for_output(node):
     """
-    Return the normalized division without changing the row's location.
+    Derive an optional matched division without changing the source Division.
 
     MSD 1 and MSD 2 require confirmed region or facility evidence.
     A standalone Multi-State division total is normalized only to MSD.
@@ -780,6 +781,7 @@ def normalize_division_for_output(node):
     )
 
     normalized_location_type = _normalized_text(location_type)
+    normalized_original_division = _normalized_text(original_division)
 
     final_division = original_division
     mapping_status = "UNRESOLVED_PRESERVED"
@@ -789,6 +791,39 @@ def normalize_division_for_output(node):
     # Preserve the location and existing division unless another hierarchy
     # field contains separately confirmed facility or region evidence.
     is_market_row = normalized_location_type == "market"
+
+    # Organizational ownership is stronger than a geographic word lower in
+    # the hierarchy. A Primary Health row mentioning Manchester remains PHD;
+    # a Corporate Services cost center mentioning Tampa remains Corporate.
+    if normalized_original_division in DIRECT_DIVISION_MAP:
+        final_division = DIRECT_DIVISION_MAP[
+            normalized_original_division
+        ]
+        mapping_status = "CONFIRMED_DIRECT_DIVISION"
+        matched_evidence = normalized_original_division
+
+        return final_division, mapping_status, matched_evidence
+
+    if (
+        normalized_original_division
+        in UNSUPPORTED_CORPORATE_SERVICES_NAMES
+    ):
+        final_division = original_division
+        mapping_status = "UNSUPPORTED_CORPORATE_SERVICES_PRESERVED"
+        matched_evidence = normalized_original_division
+
+        return final_division, mapping_status, matched_evidence
+
+    allow_florida_facility_mapping = (
+        normalized_original_division in FLORIDA_PARENT_NAMES
+        or original_division in ("", "N/A")
+    )
+
+    allow_multistate_facility_mapping = (
+        normalized_original_division in MULTISTATE_PARENT_NAMES
+        or normalized_original_division in MULTISTATE_DIVISION_NAMES
+        or original_division in ("", "N/A")
+    )
 
     # MSD region evidence is stronger than the generic Multi-State name.
     msd1_region_match = _find_name_in_evidence(
@@ -801,12 +836,12 @@ def normalize_division_for_output(node):
         MSD2_REGIONS,
     )
 
-    if msd1_region_match:
+    if msd1_region_match and allow_multistate_facility_mapping:
         final_division = "MSD 1"
         mapping_status = "CONFIRMED_REGION_TO_DIVISION"
         matched_evidence = msd1_region_match
 
-    elif msd2_region_match:
+    elif msd2_region_match and allow_multistate_facility_mapping:
         final_division = "MSD 2"
         mapping_status = "CONFIRMED_REGION_TO_DIVISION"
         matched_evidence = msd2_region_match
@@ -838,27 +873,33 @@ def normalize_division_for_output(node):
             MSD2_LOCATIONS,
         )
 
-        if cfd_location_match:
+        if cfd_location_match and allow_florida_facility_mapping:
             final_division = "CFD"
             mapping_status = "CONFIRMED_FACILITY_TO_DIVISION"
             matched_evidence = cfd_location_match
 
-        elif efd_location_match:
+        elif efd_location_match and allow_florida_facility_mapping:
             final_division = "EFD"
             mapping_status = "CONFIRMED_FACILITY_TO_DIVISION"
             matched_evidence = efd_location_match
 
-        elif wfd_location_match:
+        elif wfd_location_match and allow_florida_facility_mapping:
             final_division = "WFD"
             mapping_status = "CONFIRMED_FACILITY_TO_DIVISION"
             matched_evidence = wfd_location_match
 
-        elif msd1_location_match:
+        elif (
+            msd1_location_match
+            and allow_multistate_facility_mapping
+        ):
             final_division = "MSD 1"
             mapping_status = "CONFIRMED_FACILITY_TO_DIVISION"
             matched_evidence = msd1_location_match
 
-        elif msd2_location_match:
+        elif (
+            msd2_location_match
+            and allow_multistate_facility_mapping
+        ):
             final_division = "MSD 2"
             mapping_status = "CONFIRMED_FACILITY_TO_DIVISION"
             matched_evidence = msd2_location_match
@@ -928,14 +969,6 @@ def normalize_division_for_output(node):
                         mapping_status = "ORIGINAL_DIVISION_PRESERVED"
                         matched_evidence = original_division
 
-    _append_division_audit(
-        node=node,
-        original_division=original_division,
-        final_division=final_division,
-        mapping_status=mapping_status,
-        matched_evidence=matched_evidence,
-    )
-
     return final_division, mapping_status, matched_evidence
 
 
@@ -953,7 +986,7 @@ def save_division_mapping_audit():
         "Location Type",
         "Location",
         "Original Division",
-        "Final Division",
+        "Matched Division",
         "Mapping Status",
         "Matched Evidence",
         "Hierarchy Path",
@@ -1643,17 +1676,19 @@ def create_category_sheet_row(node):
     if display_level is None:
         return None
 
-    final_division, mapping_status, matched_evidence = (
+    matched_division, mapping_status, matched_evidence = (
         normalize_division_for_output(node)
     )
+
+    source_division = node.get("Division") or "N/A"
 
     DIVISION_MAPPING_AUDIT.append({
         "Metric": metric_name,
         "Level": display_level,
         "Location Type": location_type,
         "Location": node.get("Current Location", ""),
-        "Original Division": node.get("Division") or "N/A",
-        "Final Division": final_division,
+        "Original Division": source_division,
+        "Matched Division": matched_division,
         "Mapping Status": mapping_status,
         "Matched Evidence": matched_evidence,
         "Hierarchy Path": node.get("Hierarchy Path", ""),
@@ -1662,7 +1697,9 @@ def create_category_sheet_row(node):
     return {
         "Metric": metric_name,
         "Level": display_level,
-        "Division": final_division,
+        # Preserve the hierarchy-derived source value. Matching remains in
+        # the sidecar audit and never mutates the workbook's Division cell.
+        "Division": source_division,
         "Location Type": location_type,
         "Location": node.get(
             "Current Location",
@@ -2504,6 +2541,17 @@ def prepend_clinical_level_zero_rows(rows_by_category, business_records):
             "Variance Color": record.get("Variance Color", "GRAY"),
             "YTD": record.get("YTD", "N/A"),
             "Data As Of": record.get("Data As Of", "N/A"),
+        })
+        DIVISION_MAPPING_AUDIT.append({
+            "Metric": metric_name,
+            "Level": 0,
+            "Location Type": "Corporate",
+            "Location": "AdventHealth",
+            "Original Division": "N/A",
+            "Matched Division": "N/A",
+            "Mapping Status": "CORPORATE_SYSTEM_ROW",
+            "Matched Evidence": "AdventHealth",
+            "Hierarchy Path": "AdventHealth",
         })
     level_zero_rows.sort(
         key=lambda row: metric_order.get(row["Metric"], 999)

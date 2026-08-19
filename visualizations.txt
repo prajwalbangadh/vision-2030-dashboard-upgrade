@@ -1,0 +1,448 @@
+SHARED CALCULATION — SELECTED COHORT
+
+Construction logic:
+Every visual begins with the records remaining after its page filters. Briefing uses either enterprise summary records or direct Location Type = Division records. Insights uses one Business Area + one Metric + one Location Type + optional Matched Division + optional reporting date. Data Explorer uses its selected Business Area, Metric, Location Type, Division Basis, Division, date, goal status, and search text.
+
+What it conveys:
+The exact population of records represented by the visual.
+
+Why it is useful:
+It prevents Corporate, Division, Region, Facility, FRL, Cost Center, and other hierarchy levels from being silently combined in a performance statistic.
+
+
+SHARED CALCULATION — GOAL STATUS COUNTS
+
+Construction logic:
+Met = records whose value satisfies their comparable local goal. Missed = records whose value fails their comparable local goal. Unavailable = records for which the value-to-goal comparison cannot be defended. Eligible = Met + Missed. Unavailable is not included in Eligible.
+
+What it conveys:
+How many selected records met a defensible local goal, missed it, or could not be compared.
+
+Why it is useful:
+It prevents missing or inappropriate goal logic from being counted automatically as either success or failure.
+
+
+SHARED CALCULATION — GOAL ATTAINMENT RATE
+
+Construction logic:
+Goal attainment % = round[Met / (Met + Missed) × 100]. If Met + Missed = 0, the result is shown as “—”.
+
+Example:
+5 met + 3 missed + 2 unavailable gives Eligible = 5 + 3 = 8 and Goal attainment = 5 / 8 × 100 = 62.5%, displayed as 63%.
+
+What it conveys:
+The share of defensibly comparable records that met their local goals.
+
+Why it is useful:
+It supplies a clear numerator and denominator while keeping unavailable records visible separately.
+
+
+SHARED CALCULATION — NORMALIZED LOCAL-GOAL GAP
+
+Construction logic:
+For a higher-is-better goal: Gap % = (Value − Goal) / |Goal| × 100. For a lower-is-better goal: Gap % = (Goal − Value) / |Goal| × 100. A positive result is a met-goal margin; a negative result is a missed-goal gap. If Goal = 0, the raw signed difference is used. For approved financial metrics, the workbook’s reported local-target variance is used instead.
+
+Example:
+Value 75 against goal ≥ 80 gives (75 − 80) / 80 × 100 = −6.25%.
+
+What it conveys:
+How far a record sits above or below its own goal on a percentage basis.
+
+Why it is useful:
+It permits prioritization across metrics with different units without comparing their raw values directly.
+
+
+ALL PAGES — SOURCE WORKBOOK CHIP
+
+Construction logic:
+Batch = timestamp parsed from the selected source workbook filename. Detail rows = total normalized detail records. Unique scopes = number of distinct Source Division + Location Type + Location combinations.
+
+What it conveys:
+Which workbook powers the page and the broad size of the embedded dataset.
+
+Why it is useful:
+It makes screenshots and presentations traceable to a specific source run.
+
+
+BRIEFING — GOAL ATTAINMENT KPI
+
+Construction logic:
+Uses the shared Goal attainment formula for the selected System or direct Matched Division scope: Met / (Met + Missed) × 100.
+
+What it conveys:
+The proportion of comparable executive metrics meeting their local goals.
+
+Why it is useful:
+It gives leadership a single defensible orientation number with its numerator and eligible denominator.
+
+
+BRIEFING — MISSED GOAL KPI
+
+Construction logic:
+Count every selected record with Derived Goal Status = missed. The supporting label identifies the missed record with the most negative finite normalized gap.
+
+What it conveys:
+How many executive metrics miss their goals and which has the largest comparable gap.
+
+Why it is useful:
+It directs attention without treating status-unavailable records as failures.
+
+
+BRIEFING — STATUS UNAVAILABLE KPI
+
+Construction logic:
+Count every selected record with Derived Goal Status = unavailable.
+
+What it conveys:
+How many selected metrics cannot support a defensible goal comparison even when a reported value may exist.
+
+Why it is useful:
+It separates data-comparability limitations from actual missed performance.
+
+
+BRIEFING — REPORTED VALUES KPI
+
+Construction logic:
+Numerator = selected records whose raw value is neither “N/A” nor “Coming Soon”. Denominator = all selected records. The supporting date range is the earliest through latest non-N/A Data As Of label in the scope.
+
+What it conveys:
+How many selected metric records contain a reported value and the span of their reporting labels.
+
+Why it is useful:
+It reveals whether the executive view is populated and whether its metrics come from mixed reporting periods.
+
+
+BRIEFING — EXECUTIVE READOUT: ATTENTION
+
+Construction logic:
+Filter the selected records to missed status with a finite normalized gap. Sort from the most negative gap upward. Display the first record.
+
+What it conveys:
+The largest defensible missed-goal gap in the selected scope.
+
+Why it is useful:
+It identifies a reproducible priority signal rather than generating a promotional or subjective headline.
+
+
+BRIEFING — EXECUTIVE READOUT: PROTECT
+
+Construction logic:
+Filter the selected records to met status with a finite normalized gap. Sort from the largest positive margin downward. Display the first record.
+
+What it conveys:
+The largest positive margin against a known local goal.
+
+Why it is useful:
+It balances attention to gaps with visibility into a result worth sustaining.
+
+
+BRIEFING — EXECUTIVE READOUT: DATA CONFIDENCE
+
+Construction logic:
+Unavailable ratio = Status-unavailable records / all selected records. Also count records with Data As Of = N/A and display the selected scope’s reporting-date range.
+
+What it conveys:
+How much of the executive scorecard lacks defensible goal status or reporting-date context.
+
+Why it is useful:
+It makes analytical limitations part of the decision discussion rather than hiding them below the charts.
+
+
+BRIEFING — DIRECT DIVISION STATUS COMPOSITION
+
+Construction logic:
+For each Matched Division with direct Location Type = Division records, count Met, Missed, and Unavailable across non-WPC business areas. Total bar width = all three counts. Green width = Met / Total × 100. Red width = Missed / Total × 100. Gray width = Unavailable / Total × 100. The number at right = Met / (Met + Missed) × 100. Divisions are sorted by attainment rate, then eligible denominator.
+
+What it conveys:
+Both the complete status composition and the eligible attainment rate for every directly reported Division.
+
+Why it is useful:
+It compares direct Division records without manufacturing rollups from Facilities, FRLs, Regions, or Cost Centers.
+
+
+BRIEFING — METRICS BY REPORTING DATE
+
+Construction logic:
+Group selected executive records by Data As Of. Bar count = number of metric records with that label. Bar width = Date count / largest Date count × 100. Dates are ordered newest to oldest when the label can be parsed.
+
+What it conveys:
+Which reporting labels dominate the selected executive scope and how mixed its freshness is.
+
+Why it is useful:
+It prevents a mixed-date snapshot from being mistaken for one common reporting month or a time trend.
+
+
+BRIEFING — PERFORMANCE BY STRATEGIC ASPIRATION
+
+Construction logic:
+Group the selected records by strategic aspiration. Large percentage = Met / (Met + Missed) × 100. The stacked strip uses all records: green = Met / Total, red = Missed / Total, gray = Unavailable / Total. Every metric has equal weight; no volume weighting is applied.
+
+What it conveys:
+Goal attainment and comparability composition within each strategic aspiration.
+
+Why it is useful:
+It shows whether an overall result is concentrated in one strategic area and exposes aspirations with many unavailable metrics.
+
+
+BRIEFING — PRIORITY GAPS RANKING
+
+Construction logic:
+Select missed records with a finite normalized gap. Sort from most negative gap to least negative. Display up to five, with value, local goal, reporting date, and gap percentage.
+
+What it conveys:
+The five largest defensible local-goal shortfalls in the selected executive scope.
+
+Why it is useful:
+It turns the overall missed count into a short, evidence-backed review queue.
+
+
+BRIEFING — STRENGTHS TO PROTECT RANKING
+
+Construction logic:
+Select met records with a finite normalized gap. Sort from largest positive margin downward. Display up to five, with value, local goal, reporting date, and margin percentage.
+
+What it conveys:
+The five largest positive local-goal margins in the selected executive scope.
+
+Why it is useful:
+It identifies strong results while retaining the exact goal and date behind each ranking.
+
+
+BRIEFING — GROUPED ASPIRATION SCORECARD
+
+Construction logic:
+Group the enterprise metric catalogue by aspiration. For each metric, find the selected System or direct Division record. Display its reported value, local goal, reporting date, status basis, and Met/Missed/Unavailable status. If no direct record exists, display an explicit blank state rather than a calculated rollup.
+
+What it conveys:
+The detailed record behind each aspiration-level summary.
+
+Why it is useful:
+It provides a direct path from executive status to the exact metric evidence and makes missing Division-level records visible.
+
+
+BRIEFING — DIRECT DIVISION HEATMAP
+
+Construction logic:
+Rows = metrics that possess at least one direct Location Type = Division record. Columns = matched Divisions with direct records. Each cell uses the corresponding record’s Derived Goal Status: green = met, red = missed, gray = unavailable, blank = no record. Hover text shows location, value, local goal, and date.
+
+What it conveys:
+Where direct Division-level strengths, gaps, unavailable comparisons, and missing records occur across metrics.
+
+Why it is useful:
+It enables pattern scanning without averaging unlike metrics or rolling up lower hierarchy levels.
+
+
+INSIGHTS — PEER RECORDS KPI
+
+Construction logic:
+Main value = count of all records in the selected like-for-like cohort. Supporting value = count whose parsed Value is finite and numeric.
+
+What it conveys:
+The total peer sample and how much of it can participate in numeric analysis.
+
+Why it is useful:
+It makes sample size and numeric availability visible before interpreting distributions or rankings.
+
+
+INSIGHTS — MEET LOCAL GOAL KPI
+
+Construction logic:
+Met / (Met + Missed) × 100 for the selected metric, Location Type, Matched Division, and date cohort.
+
+What it conveys:
+The eligible peer attainment rate for one comparable cohort.
+
+Why it is useful:
+It avoids combining different metrics or hierarchy levels in one percentage.
+
+
+INSIGHTS — MISS LOCAL GOAL KPI
+
+Construction logic:
+Main value = count of selected records with missed status. Supporting value = count with unavailable status, which is excluded from the attainment denominator.
+
+What it conveys:
+The number of defensible misses and the size of the excluded comparability group.
+
+Why it is useful:
+It shows both performance gaps and the data limitation surrounding the rate.
+
+
+INSIGHTS — PEER MEDIAN KPI
+
+Construction logic:
+Sort all finite numeric values in the selected cohort. With odd N, select the middle value. With even N, average the two middle values.
+
+What it conveys:
+The central reported value of the comparable peer cohort.
+
+Why it is useful:
+It is less sensitive to unusually high or low records than the arithmetic mean.
+
+
+INSIGHTS — HIGHEST REPORTED VALUES BARS
+
+Construction logic:
+Keep numeric records, sort by raw numeric value descending, and display up to 14. Within the displayed set, bar width = 8 + [(Value − Minimum) / (Maximum − Minimum)] × 92. If all displayed values are equal, every bar receives the minimum width. Bar color uses Derived Goal Status.
+
+What it conveys:
+The highest raw reported peer values and each record’s local-goal status.
+
+Why it is useful:
+It supports peer inspection while explicitly avoiding the assumption that a higher raw value is always better.
+
+
+INSIGHTS — GOAL-STATUS DONUT
+
+Construction logic:
+Total circle = all selected peer records. Green arc = Met / Total × 100. Red arc = Missed / Total × 100. Gray arc = Unavailable / Total × 100. Center value = Met / (Met + Missed) × 100, not Met / Total.
+
+What it conveys:
+The full status composition alongside the defensible eligible attainment rate.
+
+Why it is useful:
+It prevents unavailable records from disappearing while still keeping them out of the performance denominator.
+
+
+INSIGHTS — VALUE DISTRIBUTION HISTOGRAM
+
+Construction logic:
+Requires at least five numeric values. If there are 10 or fewer distinct values, each distinct value becomes a bin. Otherwise, number of equal-width bins = minimum of 10 and maximum of 5 or ceiling[square root of N]. Bin width = (Maximum − Minimum) / number of bins. Each bar height = Bin count / largest Bin count × 100. The middle-50% statement uses interpolated 25th and 75th percentiles.
+
+What it conveys:
+The frequency, spread, concentration, observed range, and middle 50% of the selected peer values.
+
+Why it is useful:
+It exposes clustering, skew, and outliers that a median alone cannot show.
+
+
+INSIGHTS — LARGEST LOCAL-GOAL GAPS BARS
+
+Construction logic:
+Keep only missed records with a finite normalized local-goal gap. Sort from the most negative gap upward and display up to 12. Bar width = |Gap| / largest |Gap| among displayed records × 100.
+
+What it conveys:
+Which peer locations have the largest comparable percentage shortfalls against their own local goals.
+
+Why it is useful:
+It creates a defensible investigation queue across records whose raw units or goal values may differ.
+
+
+INSIGHTS — GOAL ATTAINMENT BY DIVISION
+
+Construction logic:
+Within the selected Metric + Location Type + date cohort, group records by Matched Division. For each division, Eligible = Met + Missed and Rate = round[Met / Eligible × 100]. Exclude groups with Eligible = 0. Sort by Rate descending, then Eligible denominator descending. Bar width equals Rate.
+
+What it conveys:
+Like-for-like eligible attainment rates across matched Divisions with Met, Missed, Unavailable, and N displayed.
+
+Why it is useful:
+It compares divisions on the same metric and hierarchy level without mixing raw values or hiding denominator differences.
+
+
+INSIGHTS — CURRENT VS YTD BARS
+
+Construction logic:
+Keep records with both numeric Current and numeric YTD values. Delta = Current − YTD. Sort by |Delta| descending and display up to 12. Bar width = clamp[50 + Delta × 3, minimum 8, maximum 100]. Positive or zero Delta is green; negative Delta is red.
+
+What it conveys:
+The records with the largest numeric differences between the workbook’s Current and YTD fields.
+
+Why it is useful:
+It identifies records worth investigating, while remaining a two-field comparison rather than a time trend. The green/red color here represents the sign of the difference, not whether the change is favorable for the metric.
+
+
+INSIGHTS — MATCHED-SCOPE SCATTERPLOT AND CORRELATION
+
+Construction logic:
+Pair the selected primary metric with a secondary metric only when both records share the exact Scope ID, Location Type, Matched Division selection, and reporting-date selection. Require at least five numeric pairs and variation on both axes. Point X = primary value scaled from its observed minimum to maximum. Point Y = secondary value scaled from its observed minimum to maximum. Pearson r = sum[(Xi − mean X)(Yi − mean Y)] / square root{sum[(Xi − mean X)^2] × sum[(Yi − mean Y)^2]}. Strength label = Strong when |r| ≥ 0.70, Moderate when |r| ≥ 0.50, otherwise Modest.
+
+What it conveys:
+The direction and strength of a descriptive linear relationship across exactly matched peer scopes, with r and N shown.
+
+Why it is useful:
+It identifies questions for investigation while preventing unmatched locations or mixed hierarchy levels from creating a misleading relationship. It does not establish causation.
+
+
+DATA EXPLORER — QUALITY STRIP: FILTERED ROWS
+
+Construction logic:
+Count every row remaining after the current Explorer filters and search text.
+
+What it conveys:
+The exact number of source-aligned records represented by the current view.
+
+Why it is useful:
+It makes every filter result and exported population explicit.
+
+
+DATA EXPLORER — QUALITY STRIP: UNIQUE SCOPES
+
+Construction logic:
+Count distinct Scope IDs among filtered rows. Scope ID = normalized Location Type + normalized Location, except Corporate records share the System scope.
+
+What it conveys:
+How many distinct organizational scopes are represented, separately from the number of metric rows.
+
+Why it is useful:
+It prevents multiple metrics for one location from being mistaken for multiple organizations.
+
+
+DATA EXPLORER — QUALITY STRIP: ELIGIBLE MEETING GOAL
+
+Construction logic:
+Show Met / (Met + Missed) × 100 only for the enterprise summary or when one Metric and one Location Type are selected. Otherwise display “—”.
+
+What it conveys:
+A goal-attainment rate only when the filtered records form a defensible analytical cohort.
+
+Why it is useful:
+It suppresses misleading rates when several metrics or hierarchy levels are mixed.
+
+
+DATA EXPLORER — QUALITY STRIP: REPORTING RANGE
+
+Construction logic:
+Collect distinct non-N/A Data As Of labels from filtered rows, order parsable labels chronologically, and display the earliest through latest label. If only one exists, display it once.
+
+What it conveys:
+The reporting-date span represented by the current filtered result.
+
+Why it is useful:
+It makes mixed-date selections visible before records are compared or exported.
+
+
+DATA EXPLORER — FILTERED COMPOSITION BARS
+
+Construction logic:
+The grouping changes with context. On Vision 2030, group rows by Business Area. With All Location Types selected, group by Location Type. With one Location Type and all Divisions selected, group by the selected Division Basis: exact Source Division or derived Matched Division. With one Division selected, group by Goal Status. Sort groups by count descending and show up to 14. Bar width = Group count / largest Group count × 100.
+
+What it conveys:
+The composition of the filtered records using the most relevant dimension for the current view.
+
+Why it is useful:
+It reveals where records are concentrated without pretending record count is organizational size, performance weight, or completeness.
+
+
+DATA EXPLORER — SCORECARD METRIC CARDS
+
+Construction logic:
+Group filtered rows by Metric. In the all-metric, mixed-hierarchy business-area view, each card shows the record count at that metric’s preferred peer Location Type, or the most populated available type when no preferred type exists. In a more specific filtered view, a one-record card shows that record’s value, local goal, and status. A multi-record card shows Met / (Met + Missed) × 100 with its numerator and eligible denominator.
+
+What it conveys:
+Either where metric records are available or the current metric’s source value/attainment summary, depending on filter specificity.
+
+Why it is useful:
+It provides a business-friendly index into the workbook without calculating a mixed-hierarchy performance rate.
+
+
+DATA EXPLORER — WORKBOOK TABLE
+
+Construction logic:
+Display up to the first 500 filtered rows using the active sort. Columns include Metric, Matched Division, unchanged Source Division, Report Geography, Mapping Status and Confidence, Location Type, Location, Value, Local Goal, Derived Goal Status, Source Variance, Source Color, YTD, and Data As Of. CSV export includes every filtered row even when more than 500 exist.
+
+What it conveys:
+The exact row-level evidence behind the cards and charts, including source-versus-derived Division provenance.
+
+Why it is useful:
+It lets a presenter or analyst trace any result back to its workbook-aligned record and inspect mappings without relying on a summarized visual.

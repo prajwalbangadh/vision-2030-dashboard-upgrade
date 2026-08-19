@@ -46,6 +46,8 @@ Data Explorer is for traceability and investigation.
 
 Corporate, Division, Region, Market, Facility, Campus, Hospital, FRL, Costing Company, and Cost Center are treated as different analytical levels. They are not casually combined.
 
+Source Division, Matched Division, and Report Geography are kept separate. A Primary Health- or Corporate-owned record can retain Florida or Multistate context without changing the workbook's organizational parent.
+
 4. TARGETS ARE LOCAL AND CONSERVATIVE
 
 The site uses the goal attached to the same row whenever a comparison is valid. It does not apply an enterprise target to every lower-level record merely because that creates a color.
@@ -99,13 +101,15 @@ Why there is no yellow status:
 5. SOURCE AND AUDIT CHIP
 ======================================================================
 
-POINT TO “CERTIFIED WORKBOOK BATCH” IN THE TOP-RIGHT AREA.
+POINT TO “SOURCE WORKBOOK BATCH” IN THE TOP-RIGHT AREA.
 
 Suggested explanation:
 
 “This chip identifies the output batch currently powering the site. It also shows the detail-row and unique-scope counts. This gives the audience immediate provenance and makes it harder to mistake an old screenshot for the current run.”
 
-“When we rebuild, the launcher selects the latest timestamped workbook, normalizes it, runs the audit, and injects the same model into all three pages.”
+“When we rebuild, the launcher selects the latest timestamped source workbook from the project root or extraction output, attaches its separate row-level matching audit, and injects the same validated model into all three pages.”
+
+“The live site now reads the August 18 extraction directly. Its Division cells are not renamed or overwritten. When a consolidated filter is useful, the site uses a visibly separate Matched Division field, while Data Explorer always retains the unchanged Source Division beside it.”
 
 Do not memorize the batch or row count. Read it from the live chip.
 
@@ -320,7 +324,7 @@ PURPOSE
 
 POINT LEFT TO RIGHT ACROSS THE FILTER BAR.
 
-Business Area -> Metric -> Compare As -> Division -> Data As Of
+Business Area -> Metric -> Compare As -> Matched Division -> Data As Of
 
 “Every dropdown is rebuilt from records that actually exist after the previous selection.”
 
@@ -478,11 +482,13 @@ WORKBOOK TABLE
 
 8C. EXPLORER FILTERS
 
-Metric -> Compare As -> Division -> Data As Of -> Goal Status -> Search
+Metric -> Compare As -> Division Basis -> Division -> Data As Of -> Goal Status -> Search
 
 “The options cascade from the available rows. Selecting a metric chooses a sensible default peer level, but the user can switch to another valid level.”
 
 “All types remains available in the raw table for auditing. When multiple hierarchy levels are mixed, the page displays a warning and suppresses the combined attainment headline.”
+
+“Division Basis switches between the unchanged Source Division from the workbook and the separately derived Matched Division. This makes the matching layer optional and directly auditable.”
 
 “To isolate a named Region, Market, Facility, Campus, Hospital, FRL, Costing Company, or Cost Center, select the appropriate Compare As level and Division, then search for the location.”
 
@@ -512,7 +518,7 @@ REPORTING RANGE
 
 - In the executive tab, it counts metrics by business area.
 - In a mixed hierarchy audit view, it counts rows by hierarchy level.
-- At one selected hierarchy, it counts available records by Division.
+- At one selected hierarchy, it counts available records by the selected source or matched Division basis.
 - At one specific Division, it can summarize the goal-status record mix.
 
 Important caveat:
@@ -689,6 +695,10 @@ NO SILENT DATA LOSS
 
 “Unavailable and unresolved rows remain visible and explainable.”
 
+NO GEOGRAPHY-AS-OWNERSHIP SHORTCUT
+
+“A location name can provide report-geography context, but it does not overrule an explicit PHD or Corporate organizational parent.”
+
 NO DECORATIVE CHART QUOTAS
 
 “We did not add a chart merely because a page looked empty. Tables, notices, or unavailable messages are used when they communicate the truth more clearly.”
@@ -700,16 +710,16 @@ NO DECORATIVE CHART QUOTAS
 
 Suggested technical explanation:
 
-“One Python launcher resolves the latest output workbook, normalizes every sheet, validates the record model, writes an audit CSV, injects the same data into all three pages, and starts localhost.”
+“One Python launcher resolves the latest immutable source workbook from the project root or normal output, attaches the separate matching audit, validates source-to-audit identity, writes a normalized audit CSV, injects the same data into all three pages, and starts localhost.”
 
 Command:
 
-cd /Users/prajwalbang/Downloads/vision2030_contemporary_site/vision2030_contemporary_site
-python3 run_vision2030.py
+cd /Users/prajwalbang/Downloads/vision2030_contemporary_site_upgrade
+python3 vision2030_contemporary_site/run_vision2030.py
 
 Build without starting localhost:
 
-python3 run_vision2030.py --build-only
+python3 vision2030_contemporary_site/run_vision2030.py --build-only
 
 “If validation fails, the build stops instead of publishing a potentially inconsistent site.”
 
@@ -817,6 +827,16 @@ Q: WHY ARE ONLY SOME METRICS AVAILABLE IN DIVISION VIEW?
 A: Those are the metrics with direct Division rows. Other metrics use different reporting hierarchies and remain explicit rather than reassigned.
 
 
+Q: HOW WERE DIVISIONS REMAPPED?
+
+A: We do not remap the workbook itself. Source Division is retained exactly. A separate matching audit uses the report workbook as evidence for an optional Matched Division. An explicit direct parent such as Primary Health or Corporate wins, and geographic evidence is considered only when the source parent is broad or unresolved. Every detail record carries Source Division, Matched Division, status, confidence, evidence, and optional Report Geography.
+
+
+Q: DOES THE WEBSITE STILL USE THE ROUGH WORKBOOK?
+
+A: No. Every value, goal, status, date, and source Division comes directly from the August 18 extraction. The rough workbook is retained only as historical matching evidence in the sidecar audit. Its two unexplained clinical value edits are not used.
+
+
 Q: CAN WE DRILL INTO REGIONS OR FACILITIES?
 
 A: Yes. In Insights, choose the metric and its available Compare As level. In Data Explorer, add Division and location search. Briefing remains System/Division because it is an executive summary.
@@ -852,9 +872,9 @@ Q: WHY IS THERE NO MAP?
 A: The workbook does not yet include governed geographic keys. A map based only on names could be wrong while looking precise.
 
 
-Q: HOW DO WE KNOW THE SITE USES THE LATEST FILE?
+Q: HOW DO WE KNOW THE SITE USES THE LATEST AUDITED FILE?
 
-A: The launcher selects the latest timestamped workbook under output, displays its batch on every page, and writes the selected source into validation_summary.json.
+A: The launcher selects the newest timestamped source workbook across the project root and output, displays its timestamp on every page, and writes the selected source and mapping audit into the generated model. Publication stops unless the source-to-audit match, row, clinical aggregate, duplicate, and known-facility checks all pass.
 
 
 Q: CAN THE DATA BE EXPORTED?
@@ -898,12 +918,12 @@ AVOID UNLESS PROVEN:
 17. PRE-PRESENTATION CHECKLIST
 ======================================================================
 
-1. Place the newest workbook in its timestamped output folder.
+1. Place the immutable extraction in the project root or its timestamped output folder, then generate or update its sidecar audit with reconciliation/build_source_mapping_audit.py.
 
 2. Run:
 
-   cd /Users/prajwalbang/Downloads/vision2030_contemporary_site/vision2030_contemporary_site
-   python3 run_vision2030.py
+   cd /Users/prajwalbang/Downloads/vision2030_contemporary_site_upgrade
+   python3 vision2030_contemporary_site/run_vision2030.py
 
 3. Confirm the terminal prints:
 
